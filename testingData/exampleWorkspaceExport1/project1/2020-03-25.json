@@ -1,0 +1,17 @@
+[
+    {
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1585153431.000200",
+        "user": "U010EA99WEP",
+        "text": "<@U010EA99WEP> has joined the channel"
+    },
+    {
+        "type": "message",
+        "subtype": "channel_purpose",
+        "ts": "1585153431.000300",
+        "user": "U010EA99WEP",
+        "text": "<@U010EA99WEP> set the channel purpose: Discussion of project1",
+        "purpose": "Discussion of project1"
+    }
+]

@@ -1,0 +1,47 @@
+[
+    {
+        "type": "message",
+        "subtype": "channel_join",
+        "ts": "1585151014.000200",
+        "user": "U010EA99WEP",
+        "text": "<@U010EA99WEP> has joined the channel"
+    },
+    {
+        "client_msg_id": "5f5a3a07-f9d0-4a73-9f5c-f241360d320f",
+        "type": "message",
+        "text": "test",
+        "user": "U010EA99WEP",
+        "ts": "1585153402.000400",
+        "team": "T010RPN9B7A",
+        "user_team": "T010RPN9B7A",
+        "source_team": "T010RPN9B7A",
+        "user_profile": {
+            "avatar_hash": "g6413b2f7c69",
+            "image_72": "https:\/\/secure.gravatar.com\/avatar\/6413b2f7c698ec18cac160535c8cbff8.jpg?s=72&d=https%3A%2F%2Fa.slack-edge.com%2Fdf10d%2Fimg%2Favatars%2Fava_0025-72.png",
+            "first_name": "",
+            "real_name": "zcm.box",
+            "display_name": "",
+            "team": "T010RPN9B7A",
+            "name": "zcm.box",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "F=Tq",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "test"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
