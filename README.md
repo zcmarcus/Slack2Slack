@@ -10,6 +10,8 @@ Many Slack users create Slack workspaces that are very similar, if not identical
 Creators of Slack workspaces would be able to save a significant amount of time if they had the option to create a new channel using data they have already entered. This could be by "copying" select data from an existing Slack channel, or by using a template to create the new channel. This project will explore which option best meets users' needs while also complying with the data available on the Slack API. The project will then implement a solution to allow Slack workspace creators to quickly and easily create new workspaces. 
 
 ### Will offer users the following abilities:
+* Enter a Slack workspace's setup only once (either in Slack, or in an external template)
+* Create a new workspace that contains the pre-defined setup
 
 
 
