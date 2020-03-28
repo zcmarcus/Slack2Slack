@@ -1,0 +1,22 @@
+# Project Plan
+
+### Week 1
+- [X] Create project repository on GitHub
+- [X] Create project structure in intellij and push
+- [X] Create test workspace in Slack
+- [X] Complete Problem Statement
+- [X] Write project plan
+- [ ] Document application flow
+- [ ] Create AWS instance
+- [ ] Integration with Slack api
+- [ ] Create the template for all jsps
+- [ ] Create dao
+- [ ] Create dao unit tests
+- [ ] Weekly Time Log
+
+### Week 2
+- [ ] List technologies, versions and how they will be used
+- [ ] Weekly Time Log
+
+### Week 3
+- [ ] Weekly Time Log
