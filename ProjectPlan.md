@@ -8,7 +8,7 @@
 - [X] Write project plan
 - [ ] Document application flow
 - [ ] Create AWS instance
-- [ ] Integration with Slack api
+- [X] Integration with Slack api
 - [ ] Create the template for all jsps
 - [ ] Create unit tests
 - [ ] Weekly Time Log
