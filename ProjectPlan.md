@@ -10,8 +10,7 @@
 - [ ] Create AWS instance
 - [ ] Integration with Slack api
 - [ ] Create the template for all jsps
-- [ ] Create dao
-- [ ] Create dao unit tests
+- [ ] Create unit tests
 - [ ] Weekly Time Log
 
 ### Week 2
