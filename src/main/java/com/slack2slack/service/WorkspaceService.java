@@ -17,7 +17,7 @@ public class WorkspaceService {
     @GET
     @Produces("text/plain")
     @Path("/{param}")
-    public Response getAllWorkspaceChannels(@PathParam("param") int id) {
+    public Response getWorkspaceDetailsAndChannels(@PathParam("param") int id) {
         Channel week1Channel = new Channel();
         week1Channel.setName("week-1");
         week1Channel.setPurpose("Intro and discussion of Week 1 material");
@@ -55,8 +55,7 @@ public class WorkspaceService {
                 + "IconUrl: " + workspace.getIconUrl() + "\n\n"
                 + "Primary Owner Profile (JSON data represented as string):" + workspace.getPrimaryOwnerProfile().toString()
                 + "\n\n"
-                + "****************************************************\n"
-                + "****************************************************\n\n\n\n"
+                + "****************************************************\n\n"
                 + "Workspace Channels: \n\n";
         for(Channel channel : workspace.getChannels()) {
             output = output + "Name: " + channel.getName() + "\n\n"
