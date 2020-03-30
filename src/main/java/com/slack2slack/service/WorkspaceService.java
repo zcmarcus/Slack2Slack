@@ -12,11 +12,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 
+/**
+ * This web service provides a user with the ability to add, update, and
+ * view saved Slack workspace and channel data.
+ */
 @Path("/workspaces")
 public class WorkspaceService {
+    /**
+     * Produces response with workspace details and all contained channels.
+     */
     @GET
     @Produces("text/plain")
-    @Path("/{param}")
+    @Path("/{param}") // The workspace id
     public Response getWorkspaceDetailsAndChannels(@PathParam("param") int id) {
         Channel week1Channel = new Channel();
         week1Channel.setName("week-1");
