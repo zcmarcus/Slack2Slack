@@ -23,7 +23,9 @@ public class WorkspaceService {
      */
     @GET
     @Produces("text/plain")
-    @Path("/{param}") // The workspace id
+    // Param is workspace "id." This field and associated parameter will need to change in the future, likely
+    // to another unique identifier such a token.
+    @Path("/{param}")
     public Response getWorkspaceDetailsAndChannels(@PathParam("param") int id) {
         Channel week1Channel = new Channel();
         week1Channel.setName("week-1");

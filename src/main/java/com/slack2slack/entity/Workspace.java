@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Workspace {
 
-    private int id; // Identifier is only used for testing.
+    private int id; // Identifier is only used for testing. We will likely need to use a token of some sort to uniquely identify
 
     private String name;
 
