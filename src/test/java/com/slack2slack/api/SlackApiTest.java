@@ -9,8 +9,8 @@ public class SlackApiTest {
         // You can find the token at this link
         // https://api.slack.com/apps/A010PV5TP6D/oauth?
         // This is just an easy way to test that the app is creating a channel for the time being
-        SlackApi slackApi = new SlackApi("insert-token-here");
-        slackApi.createChannel("sarahtest");
+        SlackApi slackApi = new SlackApi("xoxb-1025804317248-1033972398197-ahe49FwVEU6ckTtjVYwc6bU0");
+        slackApi.createChannel("kellytest");
 
     }
 }
