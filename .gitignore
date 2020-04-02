@@ -48,4 +48,4 @@ fabric.properties
 /dba/
 
 #resources
-/resources
+src/main/resources/hibernate.cfg.xml
