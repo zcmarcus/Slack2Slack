@@ -32,4 +32,66 @@ class UserDaoTest {
         assertEquals("secret", retrievedUser.getPassword());
     }
 
+    /**
+     * Verify successful update user
+     */
+    @Test
+    void updateSuccess() {
+        String newUserName = "Jane_Donaldson";
+        User userToUpdate = (User)genericDao.getById(2);
+        userToUpdate.setName(newUserName);
+        genericDao.saveOrUpdate(userToUpdate);
+        User retrievedUser = (User)genericDao.getById(2);
+        assertEquals(userToUpdate, retrievedUser);
+    }
+
+    /**
+     * Verify successful insert of a user
+     */
+    @Test
+    void insertSuccess() {
+
+        User newUser = new User("FredFlintstone", "fflintstone55");
+        int id = genericDao.insert(newUser);
+        assertNotEquals(0,id);
+        User insertedUser = (User)genericDao.getById(id);
+        assertEquals(newUser, insertedUser);
+    }
+
+    /**
+     * Verify successful delete of user
+     */
+    @Test
+    void deleteSuccess() {
+        genericDao.delete(genericDao.getById(3));
+        assertNull(genericDao.getById(3));
+    }
+
+    /**
+     * Verify successful retrieval of all users
+     */
+    @Test
+    void getAllSuccess() {
+        List<User> users = genericDao.getAll();
+        assertEquals(4, users.size());
+    }
+
+    /**
+     * Verify successful get by property (equal match)
+     */
+    @Test
+    void getByPropertyEqualSuccess() {
+        List<User> users = genericDao.getByPropertyEqual("name", "donaldduck");
+        assertEquals(1, users.size());
+        assertEquals(4, users.get(0).getId());
+    }
+
+    /**
+     * Verify successful get by property (like match)
+     */
+    @Test
+    void getByPropertyLikeSuccess() {
+        List<User> users = genericDao.getByPropertyLike("name", "e");
+        assertEquals(3, users.size());
+    }
 }
