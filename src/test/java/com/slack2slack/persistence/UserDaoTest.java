@@ -1,5 +1,6 @@
 package com.slack2slack.persistence;
 
+import com.slack2slack.entity.Role;
 import com.slack2slack.entity.User;
 import com.slack2slack.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
@@ -50,12 +51,30 @@ class UserDaoTest {
      */
     @Test
     void insertSuccess() {
-
         User newUser = new User("FredFlintstone", "fflintstone55");
         int id = genericDao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = (User)genericDao.getById(id);
         assertEquals(newUser, insertedUser);
+    }
+
+    /**
+     * Verify successful addition of user role
+     */
+    @Test
+    void addUserRoleSuccess() {
+        User newUser = new User("UserWithRoleTest", "specialpassword");
+
+        String userRoleName = "admin";
+        Role userRole = new Role(userRoleName, newUser);
+
+        newUser.addRole(userRole);
+        int id = genericDao.insert(newUser);
+        assertNotEquals(0,id);
+
+        User insertedUser = (User)genericDao.getById(id);
+        assertEquals(newUser, insertedUser);
+        assertEquals(1, newUser.getRoles().size());
     }
 
     /**
@@ -66,6 +85,11 @@ class UserDaoTest {
         genericDao.delete(genericDao.getById(3));
         assertNull(genericDao.getById(3));
     }
+
+    /**
+     * Verify user roles are deleted if the user is deleted
+     */
+    //ToDo: Set up roles for users so there is test data for this!
 
     /**
      * Verify successful retrieval of all users
