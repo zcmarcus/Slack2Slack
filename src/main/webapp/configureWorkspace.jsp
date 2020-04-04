@@ -31,7 +31,7 @@
             <div>
                 <h3>Template Name</h3>
                 <p>
-                    Give this workspace a descriptive name.
+                    Give this template a descriptive name.
                 </p>
                 <p>
                     <small>Note: This field does not show up in Slack; it is simply used
