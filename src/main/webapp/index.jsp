@@ -5,6 +5,7 @@
 <%@include file="templates/header.jsp"%>
 <%@include file="templates/navmenu.jsp"%>
 
+
 <main>
         <h2>Hello World!</h2>
         <p>Welcome to the amazing Slack2Slack application</p>

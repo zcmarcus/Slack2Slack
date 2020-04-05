@@ -1,1 +1,10 @@
-/*Just a placeholder for now*/
+body {
+    padding: .5em;
+    background-color: lightgray;
+}
+
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
