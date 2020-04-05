@@ -6,9 +6,7 @@
 <%@include file="templates/header.jsp"%>
 
 <main>
-        <div class="line">
-
-        </div>
+        <div class="line"></div>
         <h2 id="welcome">Hello World!</h2>
         <p id="welcomeToSlack2Slack">Welcome to the amazing Slack2Slack application</p>
 </main>

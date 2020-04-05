@@ -11,9 +11,10 @@
     <title>Welcome</title>
 </head>
 <body>
+<%@include file="templates/header.jsp"%>
 <%-- TODO add form here for logging in --%>
-
-<FORM ACTION="j_security_check" METHOD="POST">
+<div class="line"></div>
+<FORM id="loginForm" ACTION="j_security_check" METHOD="POST">
     <TABLE>
         <TR><TD>User name: <INPUT TYPE="TEXT" NAME="j_username">
         <TR><TD>Password: <INPUT TYPE="PASSWORD" NAME="j_password">
