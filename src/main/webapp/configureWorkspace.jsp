@@ -1,120 +1,130 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<html>
+<!-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
+
+    <!-- form js script -->
+    <script src="form.js"></script>
+
 </head>
 <body>
+<div class="container">
 
     <h2>Configure Workspace using Template</h2>
 
-    <form action="" method="POST" class="form">
-        <div>
-            <div class="form-group">
-                <label for="chooseTemplate">Choose Template: </label>
-                <select class="form-control" name="chooseTemplate" id="chooseTemplate">
-                    <option selected>Choose...</option>
-                    <%--  FIXME: Change to actual variable and method names--%>
-                    <c:choose>
-                        <c:when test="${!empty userTemplates}">
-                            <c:forEach items="${userTemplates}" var="template">
-                                <option>${userTemplates.getTemplateName}</option>
-                            </c:forEach>
-                        </c:when>
-                    </c:choose>
-                    <option></option>
-                </select>
-            </div>
-        </div>
-
-        <%-- Name this template (only used in our web app; has no bearing on Slack workspace)--%>
-        <div>
+    <div class="row col-6">
+        <form action="" method="POST" class="form">
             <div>
-                <h3>Template Name</h3>
-                <p>
-                    Give this template a descriptive name.
-                </p>
-                <p>
-                    <small>Note: This field does not show up in Slack; it is simply used
-                    help identify this template.</small>
-                </p>
-
+                <div class="form-group">
+                    <label for="chooseTemplate">Choose Template: </label>
+                    <select class="form-control" name="chooseTemplate" id="chooseTemplate">
+                        <option selected>Choose...</option>
+                        <option>Create New Template</option>
+                        <%--  FIXME: Change to actual variable and method names--%>
+                        <c:choose>
+                            <c:when test="${!empty userTemplates}">
+                                <c:forEach items="${userTemplates}" var="template">
+                                    <option>${userTemplates.getTemplateName}</option>
+                                </c:forEach>
+                            </c:when>
+                        </c:choose>
+                    </select>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="templateName">Template Name (</label>
-                <input type="text" class="form-control" name="templateName" id="templateName" placeholder="Template Name">
-            </div>
-
-        </div>
-        <%-- Fill out workspace details (owner first/last name, owner display name, workspace icon)--%>
-        <div>
+            <%-- Template name (only used in our web app; has no bearing on Slack workspace)--%>
             <div>
-                <h3>Workspace Details</h3>
-            </div>
+                <div>
+                    <h3>Template Name</h3>
+                    <p>
+                        Give this template a descriptive name.
+                    </p>
+                    <p>
+                        <small>Note: This field does not show up in Slack; it is simply used
+                            to help identify this template.</small>
+                    </p>
 
-            <div class="form-group">
-                <label for="ownerFirstName">Owner First Name</label>
-                <input type="text" class="form-control" name="ownerFirstName" id="ownerFirstName" placeholder="First Name">
-            </div>
-            <div class="form-group">
-                <label for="ownerLastName">Owner Last Name</label>
-                <input type="text" class="form-control" name="ownerLastName" id="ownerLastName" placeholder="Last Name">
-            </div>
-            <div class="form-group">
-                <label for="ownerDisplayName">Owner Display Name</label>
-                <input type="text" class="form-control" name="ownerDisplayName" id="ownerDisplayName" placeholder="Desired Display Name">
-            </div>
-            // TODO: Either leave as is (require user to upload icon image elsewhere and type url here) OR allow file upload (use Amazon S3 bucket?)
-            <div class="form-group">
-                <label for="iconUrl">Workspace Icon</label>
-                <input type="text" class="form-control" name="iconUrl" id="iconUrl" placeholder="Workspace Icon Url">
-            </div>
-        </div>
+                </div>
 
-        <%-- Add/configure desired channels  --%>
+                <div class="form-group">
+                    <label for="templateName">Template Name</label>
+                    <input type="text" class="form-control" name="templateName" id="templateName" placeholder="Template Name">
+                </div>
 
-        <%-- TODO: Validation - if user fills out topic and purpose for a given channel, that channel's name must also be entered.--%>
-        <div>
+            </div>
+            <%-- Workspace details (owner first/last name, owner display name, workspace icon)--%>
             <div>
-                <h3>
-                    Channels
-                </h3>
+                <div>
+                    <h3>Workspace Details</h3>
+                </div>
+
+                <div class="form-group">
+                    <label for="ownerFirstName">Owner First Name</label>
+                    <input type="text" class="form-control" name="ownerFirstName" id="ownerFirstName" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                    <label for="ownerLastName">Owner Last Name</label>
+                    <input type="text" class="form-control" name="ownerLastName" id="ownerLastName" placeholder="Last Name">
+                </div>
+                <div class="form-group">
+                    <label for="ownerDisplayName">Owner Display Name</label>
+                    <input type="text" class="form-control" name="ownerDisplayName" id="ownerDisplayName" placeholder="Desired Display Name">
+                </div>
+                <div class="form-group">
+                    <label for="iconUrl">Workspace Icon URL</label>
+                    <input type="text" class="form-control" name="iconUrl" id="iconUrl" placeholder="Example: https://1drv.ms/u/s23Aiti?e=2398z">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="channel1Name">Channel Name</label>
-                <input type="text" class="form-control" name="channel1Name" id="channel1Name" placeholder="Channel Name">
-            </div>
+            <%-- Add/configure desired channels  --%>
 
-            <div class="form-group">
-                <label for="channel1Topic">Channel Topic</label>
-                <input type="text" class="form-control" name="channel1Topic" id="channel1Topic" placeholder="Channel Topic">
-            </div>
-            <div class="form-group">
-                <label for="channel1Purpose">Channel Purpose</label>
-                <input type="text" class="form-control" name="channel1Purpose" id="channel1Purpose" placeholder="Channel Purpose">
-            </div>
+            <%-- TODO: Validation - No fields required, BUT if user fills out topic and purpose for a given channel, that channel's name cannot be left empty.--%>
+            <div id="channelsContainer">
+                <div class="mb-2">
+                    <h3>Channels</h3>
+                    <span><small><em>Note: Maximum of 50 channels allowed</em></small></span>
+                </div>
 
-            <div class="moreChannelsContainer">
-                <%--
-                    TODO: Decide:
-                          A.) include markup for all inputs for creating channels, hidden by default, and display programmatically with js/jquery
-                          or
-                          B.) add elements dynamically with javascript (create & append)
-                --%>
+                <div id="channel1Details" class="border border-dark p-4">
+                    <div class="form-group channel1NameFormGroup">
+                        <label for="channel1Name">Name</label>
+                        <input type="text" class="form-control" name="channel1Name" id="channel1Name" >
+                    </div>
+                    <div class="form-group" id="channel1PurposeFormGroup">
+                        <label for="channel1Purpose">Purpose</label>
+                        <input type="text" class="form-control" name="channel1Purpose" id="channel1Purpose">
+                    </div>
+                    <div class="form-group" id="channel1TopicFormGroup">
+                        <label for="channel1Topic">Topic</label>
+                        <input type="text" class="form-control" name="channel1Topic" id="channel1Topic">
+                    </div>
+
+                </div>
+
+
             </div>
 
             <div>
-                <button id="addChannel" class="btn btn-secondary">Add Another Channel</button>
+                <a id="addChannelButton" class="btn btn-secondary text-light mt-2">+ Add Another Channel</a>
             </div>
 
-            <div>
+
+            <div class="mt-5">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-        </div>
 
+        </form>
 
-    </form>
+    </div>
+
+</div>
 
 </body>
 </html>
+
+<script>
+    init();
+</script>
