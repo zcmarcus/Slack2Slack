@@ -10,6 +10,32 @@ create table user
         unique (name)
 );
 
+create table template
+(
+    id int auto_increment
+        primary key,
+    name varchar(50) null,
+    iconUrl varchar(100) null,
+    primaryOwnerProfile json null,
+    user_Id int null,
+    constraint template_user_id_fk
+        foreign key (user_Id) references user (id)
+            on update cascade on delete cascade
+);
+
+create table channel
+(
+    id int auto_increment
+        primary key,
+    name varchar(80) null,
+    topic varchar(250) null,
+    purpose varchar(250) null,
+    templateId int null,
+    constraint channel_template_id_fk
+        foreign key (templateId) references template (id)
+            on update cascade on delete cascade
+);
+
 create table user_role
 (
     id int auto_increment
@@ -20,26 +46,3 @@ create table user_role
         foreign key (user_id) references user (id)
             on update cascade on delete cascade
 );
-
-create table workspace
-(
-    id int auto_increment
-        primary key,
-    name varchar(50) null,
-    iconUrl varchar(100) null,
-    primaryOwnerProfile json null
-);
-
-create table channel
-(
-    id int auto_increment
-        primary key,
-    name varchar(80) null,
-    topic varchar(80) null,
-    purpose varchar(80) null,
-    workspace_id int null,
-    constraint channel_workspace_id_fk
-        foreign key (workspace_id) references workspace (id)
-            on update cascade on delete cascade
-);
-
