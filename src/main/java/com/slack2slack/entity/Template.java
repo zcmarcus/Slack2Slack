@@ -3,7 +3,7 @@ package com.slack2slack.entity;
 import javax.json.JsonObject;
 import java.util.ArrayList;
 
-public class Workspace {
+public class Template {
 
     private int id; // Identifier is only used for testing. We will likely need to use a token of some sort to uniquely identify
     //ToDO: The database is going to need to be updated if we change this to a token. For now, the db is set to auto increment
@@ -16,10 +16,10 @@ public class Workspace {
 
     private JsonObject primaryOwnerProfile;
 
-    public Workspace() {
+    public Template() {
     }
 
-    public Workspace(String name, int id, String iconUrl, ArrayList<Channel> channels, JsonObject primaryOwnerProfile) {
+    public Template(String name, int id, String iconUrl, ArrayList<Channel> channels, JsonObject primaryOwnerProfile) {
         this.id = id;
         this.iconUrl = iconUrl;
         this.channels = channels;
@@ -68,7 +68,7 @@ public class Workspace {
 
     @Override
     public String toString() {
-        return "Workspace{" +
+        return "Template{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", iconUrl='" + iconUrl + '\'' +
