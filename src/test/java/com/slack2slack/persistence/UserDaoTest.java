@@ -89,7 +89,14 @@ class UserDaoTest {
     /**
      * Verify user roles are deleted if the user is deleted
      */
-    //ToDo: Set up roles for users so there is test data for this!
+    @Test
+    void deleteUserDeletesRolesSuccess() {
+        genericDao.delete(genericDao.getById(1));
+
+        GenericDao roleDao = new GenericDao(Role.class);
+        assertEquals(null, roleDao.getById(1));
+        assertEquals(null, roleDao.getById(2));
+    }
 
     /**
      * Verify successful retrieval of all users
