@@ -1,7 +1,7 @@
 package com.slack2slack.service;
 
 import com.slack2slack.entity.Channel;
-import com.slack2slack.entity.Workspace;
+import com.slack2slack.entity.Template;
 
 import javax.json.Json;
 import javax.json.JsonObject;
@@ -49,24 +49,24 @@ public class WorkspaceService {
                                 .add("email", "asmith909@gmail.com")))
                 .build();
 
-        Workspace workspace = new Workspace();
-        workspace.setId(1);
-        workspace.setName("java-111");
-        workspace.setIconUrl("http://www.imgur.com/fakeimg.png");
-        workspace.setChannels(channels);
-        workspace.setPrimaryOwnerProfile(profile);
+        Template template = new Template();
+        template.setId(1);
+        template.setName("java-111");
+        template.setIconUrl("http://www.imgur.com/fakeimg.png");
+        template.setChannels(channels);
+        template.setPrimaryOwnerProfile(profile);
 
 
-//        String htmlOutput = "<h2>Workspace Details: </h2>";
-        String output = "Workspace Details: \n\n";
-        output = output + "Id: " + workspace.getId() + "\n\n"
-                + "Name: " + workspace.getName() + "\n\n"
-                + "IconUrl: " + workspace.getIconUrl() + "\n\n"
-                + "Primary Owner Profile (JSON data represented as string):" + workspace.getPrimaryOwnerProfile().toString()
+//        String htmlOutput = "<h2>Template Details: </h2>";
+        String output = "Template Details: \n\n";
+        output = output + "Id: " + template.getId() + "\n\n"
+                + "Name: " + template.getName() + "\n\n"
+                + "IconUrl: " + template.getIconUrl() + "\n\n"
+                + "Primary Owner Profile (JSON data represented as string):" + template.getPrimaryOwnerProfile().toString()
                 + "\n\n"
                 + "****************************************************\n\n"
-                + "Workspace Channels: \n\n";
-        for(Channel channel : workspace.getChannels()) {
+                + "Template Channels: \n\n";
+        for(Channel channel : template.getChannels()) {
             output = output + "Name: " + channel.getName() + "\n\n"
                     + "Purpose: " + channel.getPurpose() + "\n\n"
                     + "Topic: " + channel.getTopic() + "\n\n"

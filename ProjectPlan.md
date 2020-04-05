@@ -3,7 +3,7 @@
 ### Week 1
 - [X] Create project repository on GitHub
 - [X] Create project structure in intellij and push
-- [X] Create test workspace in Slack
+- [X] Create test template in Slack
 - [X] Complete Problem Statement
 - [X] Write project plan
 - [ ] Document application flow

@@ -1,7 +1,7 @@
 .DS_Store*
 
 # User-specific stuff:
-.idea/workspace.xml
+.idea/template.xml
 .idea/tasks.xml
 .idea/dictionaries
 .idea/vcs.xml
@@ -47,6 +47,10 @@ fabric.properties
 # Database scripts
 /dba/
 
-#resources
+#main resources
 src/main/resources/hibernate.cfg.xml
 src/main/resources/log4j2.properties
+
+#test resources
+src/test/resources/database.properties
+src/test/resources/hibernate.cfg.xml
