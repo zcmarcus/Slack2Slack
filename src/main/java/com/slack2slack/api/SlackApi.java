@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 /**
- * The type Slack api.
+ * The type Slack api. channel
  */
 public class SlackApi {
 

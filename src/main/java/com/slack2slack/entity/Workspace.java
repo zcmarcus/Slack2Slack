@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class Workspace {
 
     private int id; // Identifier is only used for testing. We will likely need to use a token of some sort to uniquely identify
+    //ToDO: The database is going to need to be updated if we change this to a token. For now, the db is set to auto increment
 
     private String name;
 
