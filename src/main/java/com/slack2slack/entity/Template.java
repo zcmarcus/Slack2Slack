@@ -10,9 +10,10 @@ import java.util.Objects;
 /**
  * Represents a template for a Slack workspace
  */
+@Entity(name = "Template")
+@Table(name = "template")
 public class Template {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
