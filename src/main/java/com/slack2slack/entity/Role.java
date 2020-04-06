@@ -25,7 +25,6 @@ public class Role {
     @JoinColumn(name = "user_id",
             foreignKey = @ForeignKey(name = "user_role_user_id_fk")
     )
-
     private User user;
 
 

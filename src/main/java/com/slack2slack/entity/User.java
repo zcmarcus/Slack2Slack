@@ -15,19 +15,19 @@ import java.util.Set;
 @Table(name = "user")
 public class User {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "password")
     private String password;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Template> templates = new HashSet<>();
 
     /**
      * Instantiates a new User (empty constructor)
@@ -136,6 +136,44 @@ public class User {
     public void removeRole(Role role) {
         roles.remove(role);
         role.setUser(null);
+    }
+
+    /**
+     * Gets templates.
+     *
+     * @return the templates
+     */
+    public Set<Template> getTemplates() {
+        return templates;
+    }
+
+    /**
+     * Sets templates.
+     *
+     * @param templates the templates
+     */
+    public void setTemplates(Set<Template> templates) {
+        this.templates = templates;
+    }
+
+    /**
+     * Add a template.
+     *
+     * @param template the template
+     */
+    public void addTemplate(Template template) {
+        templates.add(template);
+        template.setUser(this);
+    }
+
+    /**
+     * Remove template.
+     *
+     * @param template the template
+     */
+    public void removeTemplate(Template template) {
+        templates.remove(template);
+        template.setUser(null);
     }
 
     @Override
