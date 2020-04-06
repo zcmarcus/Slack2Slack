@@ -10,6 +10,8 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
+//TODO: Update with tests for user templates
 class UserDaoTest {
     GenericDao genericDao;
 
