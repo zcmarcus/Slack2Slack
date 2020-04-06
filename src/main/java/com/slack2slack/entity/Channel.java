@@ -15,13 +15,10 @@ public class Channel {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "topic")
     private String topic;
 
-    @Column(name = "purpose")
     private String purpose;
 
     @ManyToOne
