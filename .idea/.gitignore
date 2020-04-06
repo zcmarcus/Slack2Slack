@@ -4,3 +4,6 @@
 # Datasource local storage ignored files
 /dataSources/
 
+database.properties
+
+hibernate.cfg.xml
