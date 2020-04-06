@@ -3,9 +3,7 @@ package com.slack2slack.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * Represents a Slack channel
@@ -32,7 +30,6 @@ public class Channel {
     @JoinColumn(name = "templateId",
             foreignKey = @ForeignKey(name = "channel_template_id_fk")
     )
-
     private Template template;
 
     /**
