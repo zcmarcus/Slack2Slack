@@ -18,13 +18,10 @@ public class Template {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "iconUrl")
     private  String iconUrl;
 
-    @Column(name = "primaryOwnerProfile")
     private JsonObject primaryOwnerProfile;
 
     @ManyToOne
