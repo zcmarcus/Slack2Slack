@@ -15,7 +15,6 @@ import java.util.Set;
 @Table(name = "user")
 public class User {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native", strategy = "native")
     private int id;

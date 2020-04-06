@@ -11,7 +11,6 @@ import java.util.Objects;
 @Table(name = "channel")
 public class Channel {
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
