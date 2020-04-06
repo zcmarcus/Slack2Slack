@@ -29,6 +29,10 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
+    //TODO: Add getters and setters, update UserDaoTest
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Template> templates = new HashSet<>();
+
     /**
      * Instantiates a new User (empty constructor)
      */

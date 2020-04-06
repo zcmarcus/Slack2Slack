@@ -21,4 +21,4 @@ delete from channel;
 INSERT INTO channel
 VALUES (1, 'general', 'General class-wide information', 'Information pertaining to the entire class', 1),
        (2, 'week-1', 'Week 1 content', 'Questions, tips, and tricks related to week 1 assignments', 1),
-       (3, 'week-2', 'week 2 content', 'Questions, tips, and tricks related to week 2 assignments', 1);
+       (3, 'week-2', 'Week 2 content', 'Questions, tips, and tricks related to week 2 assignments', 1);
