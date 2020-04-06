@@ -16,15 +16,41 @@ Creators of Slack workspaces would be able to save a significant amount of time 
 
 
 ### Similar Existing Technologies:
-* Importing of Slack Workspace Data (https://slack.com/help/articles/217872578-Import-data-from-one-template-to-another)
-* 
-*
+* Limited import/export of Slack Workspace Data (https://slack.com/help/articles/217872578-Import-data-from-one-template-to-another)
 
 ### Resources for Further Research and Potential Incorporation:
-* https://api.slack.com/web
-*
-*
-*
+* Use of more advanced Slack API components (BlockKit for interactive UI elements within Slack application, user interactions): https://api.slack.com/web
+* Allow user upload of workspace icon to [Amazon S3 bucket](https://aws.amazon.com/s3/).
+* Remove the need for user log-in. Either a.) Allow export/import of .json data with template creation form or b.) Allow sign-in through existing Google account (or FB/Microsoft)
 
 ### Project Technologies/Techniques:
-* TBA
+* JAX-RS - Provides useful annotations that aid in mapping resources as web resources in a Java web service.
+
+
+
+### List of Planned Web Service Resources and Operations
+
+_Retrieve all templates for a specific user:_
+
+> GET <br>
+@Produces JSON <br>
+users/{userId}/templates
+
+
+_Retrieve a specific template by id:_
+
+> GET <br>
+@Produces JSON <br>
+templates/{templateId}
+
+_Create new template:_
+
+> POST <br>
+@Produces JSON <br>
+users/{userId}/templates
+
+_Update an existing template:_
+
+> PUT <br>
+@Produces JSON <br>
+users/{userId}/templates/{templateId}
