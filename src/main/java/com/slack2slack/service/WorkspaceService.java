@@ -54,7 +54,7 @@ public class WorkspaceService {
         template.setName("java-111");
         template.setIconUrl("http://www.imgur.com/fakeimg.png");
         template.setChannels(channels);
-        template.setPrimaryOwnerProfile(profile);
+        template.setPrimaryOwnerProfile(profile.toString());
 
 
 //        String htmlOutput = "<h2>Template Details: </h2>";

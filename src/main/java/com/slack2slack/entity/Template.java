@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.json.JsonObject;
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -22,7 +23,7 @@ public class Template {
 
     private  String iconUrl;
 
-    private JsonObject primaryOwnerProfile;
+    private String primaryOwnerProfile;
 
     @ManyToOne
     @JoinColumn(name = "user_Id",
@@ -31,7 +32,7 @@ public class Template {
     private User user;
 
     @OneToMany(mappedBy = "template", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private ArrayList<Channel> channels = new ArrayList<>();
+    private List<Channel> channels = new ArrayList<>();
 
     /**
      * Instantiates a new Template (empty constructor)
@@ -47,7 +48,7 @@ public class Template {
      * @param primaryOwnerProfile the primary owner profile
      * @param user                the slack2slack user
      */
-    public Template(String name, String iconUrl, JsonObject primaryOwnerProfile, User user) {
+    public Template(String name, String iconUrl, String primaryOwnerProfile, User user) {
         this.name = name;
         this.iconUrl = iconUrl;
         this.primaryOwnerProfile = primaryOwnerProfile;
@@ -109,20 +110,20 @@ public class Template {
     }
 
     /**
-     * Gets Slack primary owner profile.
+     * Gets primary owner profile.
      *
      * @return the primary owner profile
      */
-    public JsonObject getPrimaryOwnerProfile() {
+    public String getPrimaryOwnerProfile() {
         return primaryOwnerProfile;
     }
 
     /**
-     * Sets Slack primary owner profile.
+     * Sets primary owner profile.
      *
      * @param primaryOwnerProfile the primary owner profile
      */
-    public void setPrimaryOwnerProfile(JsonObject primaryOwnerProfile) {
+    public void setPrimaryOwnerProfile(String primaryOwnerProfile) {
         this.primaryOwnerProfile = primaryOwnerProfile;
     }
 
@@ -149,7 +150,7 @@ public class Template {
      *
      * @return the channels
      */
-    public ArrayList<Channel> getChannels() {
+    public List<Channel> getChannels() {
         return channels;
     }
 
@@ -158,7 +159,7 @@ public class Template {
      *
      * @param channels the channels
      */
-    public void setChannels(ArrayList<Channel> channels) {
+    public void setChannels(List<Channel> channels) {
         this.channels = channels;
     }
 
