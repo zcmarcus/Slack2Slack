@@ -1,8 +1,8 @@
-package entjava.zcmarcus.ccb.controller;
+package com.slack2slack.controller;
 
-import entjava.zcmarcus.ccb.entity.User;
-import entjava.zcmarcus.ccb.entity.UserRole;
-import entjava.zcmarcus.ccb.persistence.GenericDao;
+import com.slack2slack.entity.Role;
+import com.slack2slack.entity.User;
+import com.slack2slack.persistence.GenericDao;
 import org.apache.catalina.realm.MessageDigestCredentialHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -14,12 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.time.LocalDate;
 
 @WebServlet (
-    urlPatterns = { "/signupAction" }
+    urlPatterns = { "/signup" }
 )
-public class SignupAction extends HttpServlet {
+public class SignUp extends HttpServlet {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
@@ -40,11 +39,8 @@ public class SignupAction extends HttpServlet {
 
 
         User user = new User(
-                req.getParameter("username")
+                req.getParameter("name")
                 ,hashedPassword
-                ,req.getParameter("email")
-                ,req.getParameter("last_name")
-                ,req.getParameter("first_name")
         );
 
         int newUserId = userDao.insert(user);
@@ -52,15 +48,15 @@ public class SignupAction extends HttpServlet {
 
         if (newUserId > 0) {
             // If role other than default "user" set in request, create associated role along with new user
-            GenericDao userRoleDao = new GenericDao(UserRole.class);
-            UserRole userRole;
+            GenericDao roleDao = new GenericDao(Role.class);
+            Role userRole;
             if (req.getParameterMap().containsKey("role_name")) {
-                userRole = new UserRole(user, req.getParameter("role_name"));
+                userRole = new Role(req.getParameter("role_name"), user);
             } else {
-                userRole = new UserRole(user, "user");
+                userRole = new Role("user", user);
             }
             user.addRole(userRole);
-            int newUserRoleId = userRoleDao.insert(userRole);
+            int newUserRoleId = roleDao.insert(userRole);
         }
 
         req.setAttribute("newUserId", newUserId);
