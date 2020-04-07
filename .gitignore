@@ -54,3 +54,4 @@ src/main/resources/log4j2.properties
 #test resources
 src/test/resources/database.properties
 src/test/resources/hibernate.cfg.xml
+applicationProperties
