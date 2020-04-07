@@ -6,8 +6,9 @@ public class SlackApiTest {
 
     @Test
     public void testCreateChannel() {
-        // You can find the token at this link
-        // https://api.slack.com/apps/A010PV5TP6D/oauth?
+        // FIXME: Change to the 'Slack2Slack' Slack app for final version
+        // You can find the bot token for 'SlacKerZ' app at this link
+        // https://api.slack.com/apps/A011ARSEDGC/oauth?
         // This is just an easy way to test that the app is creating a channel for the time being
         SlackApi slackApi = new SlackApi("insert-private-token-here");
         slackApi.createChannel("kellytest");
