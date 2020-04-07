@@ -16,15 +16,48 @@ Creators of Slack workspaces would be able to save a significant amount of time 
 
 
 ### Similar Existing Technologies:
-* Importing of Slack Workspace Data (https://slack.com/help/articles/217872578-Import-data-from-one-template-to-another)
-* 
-*
+* Limited import/export of Slack Workspace Data (https://slack.com/help/articles/217872578-Import-data-from-one-template-to-another)
 
 ### Resources for Further Research and Potential Incorporation:
-* https://api.slack.com/web
-*
-*
-*
+* Stretch: Use of more advanced Slack API components (BlockKit for interactive UI elements within Slack application, user interactions): https://api.slack.com/web
+* Stretch: Allow user upload of workspace icon to [Amazon S3 bucket](https://aws.amazon.com/s3/).
+* Stretch: Remove the need for creation of new user accounts. Either a.) Allow export/import of .json data using template creation form or b.) Allow sign-in through existing Google account (or FB/Microsoft)
 
 ### Project Technologies/Techniques:
-* TBA
+* JAX-RS - Provides useful annotations that aid in mapping resources as web resources in a Java web service.
+* Jackson - Quick and easy JSON parsing.
+* Slack Web API
+  * MVP: Calling methods to populate workspace with owner and channel details. This requires use of (at a minimum): `conversations`, `users`, and `files` objects.
+  * (MVP - likely) User Auth tokens for setting some workspace data that requires extra permissions.
+  * Stretch: Schedule creation of channels
+* Slack Events API
+  * MVP: Giving permissions to, and issuing commands to, Slack bots, which can take care of some workspace setup without the need for user auth tokens.
+
+
+
+### List of Planned Web Service Resources and Operations
+
+_Retrieve all templates for a specific user:_
+
+> GET <br>
+@Produces JSON <br>
+users/{userId}/templates
+
+
+_Retrieve a specific template by id:_
+
+> GET <br>
+@Produces JSON <br>
+templates/{templateId}
+
+_Create new template:_
+
+> POST <br>
+@Produces JSON <br>
+users/{userId}/templates
+
+_Update an existing template:_
+
+> PUT <br>
+@Produces JSON <br>
+templates/{templateId}
