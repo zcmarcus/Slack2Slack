@@ -98,8 +98,7 @@ public class TemplateDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        //TODO: Get all templates by user_Id...running into error though
-        List<Template> templates = genericDao.getByPropertyEqual("name", "Basic");
+        List<Template> templates = genericDao.getByPropertyEqual("user", 2);
         assertEquals(1, templates.size());
         assertEquals(1, templates.get(0).getId());
     }

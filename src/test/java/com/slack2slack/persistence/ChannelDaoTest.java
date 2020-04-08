@@ -8,6 +8,8 @@ import com.slack2slack.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ChannelDaoTest {
@@ -51,7 +53,7 @@ public class ChannelDaoTest {
     }
 
     /**
-     * Verify successful delete of a channel
+     * Verify successful delete of a channel also deletes it from the template
      */
     @Test
     void deleteSuccess() {
@@ -62,5 +64,24 @@ public class ChannelDaoTest {
 
         assertNull(genericDao.getById(1));
         assertEquals(2, templateWithDeletedChannel.getChannels().size());
+    }
+
+    /**
+     * Verify successful retrieval of all channels
+     */
+    @Test
+    void getAllSuccess() {
+        List<Channel> channels = genericDao.getAll();
+        assertEquals(3, channels.size());
+    }
+
+    /**
+     * Verify successful get by property (equal match)
+     */
+    @Test
+    void getByPropertyEqualSuccess() {
+        List<Channel> channels = genericDao.getByPropertyEqual("template", 1);
+        assertEquals(3, channels.size());
+        assertEquals(1, channels.get(0).getId());
     }
 }
