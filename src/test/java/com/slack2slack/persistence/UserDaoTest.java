@@ -40,9 +40,9 @@ class UserDaoTest {
      */
     @Test
     void updateSuccess() {
-        String newUserName = "Jane_Donaldson";
+        String newPassword = "newpass";
         User userToUpdate = (User)genericDao.getById(2);
-        userToUpdate.setName(newUserName);
+        userToUpdate.setPassword(newPassword);
         genericDao.saveOrUpdate(userToUpdate);
         User retrievedUser = (User)genericDao.getById(2);
         assertEquals(userToUpdate, retrievedUser);
