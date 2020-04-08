@@ -13,7 +13,7 @@ import java.util.Set;
  */
 @Entity(name = "User")
 @Table(name = "user")
-public class User {
+public class User implements java.io.Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native", strategy = "native")

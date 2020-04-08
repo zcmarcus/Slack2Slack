@@ -16,7 +16,7 @@ public class TemplateDaoTest {
     void setUp() {
 
         Database database = Database.getInstance();
-        database.runSQL("cleandb.sql");
+        database.runSQL("cleandb_v2.sql");
 
         genericDao = new GenericDao(Template.class);
     }

@@ -19,7 +19,7 @@ class UserDaoTest {
     void setUp() {
 
         Database database = Database.getInstance();
-        database.runSQL("cleandb.sql");
+        database.runSQL("cleandb_v2.sql");
 
         genericDao = new GenericDao(User.class);
     }

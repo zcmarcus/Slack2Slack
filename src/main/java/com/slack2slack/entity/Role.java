@@ -21,12 +21,15 @@ public class Role {
     @Column(name = "role_name")
     private String roleName;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id",
-            foreignKey = @ForeignKey(name = "user_role_user_id_fk")
-    )
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id",
+//            foreignKey = @ForeignKey(name = "user_role_user_id_fk")
+//    )
+//    private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "user_name", referencedColumnName = "name")
+    private User user;
 
     /**
      * Instantiates a new Role (empty constructor)
@@ -118,6 +121,7 @@ public class Role {
     public String toString() {
         return "Role{" +
                 "id=" + id +
+                ", user='" + user + '\'' +
                 ", roleName='" + roleName + '\'' +
                 '}';
     }
