@@ -21,7 +21,7 @@ import java.util.List;
 @WebServlet (
     urlPatterns = { "/signupAction" }
 )
-public class SignupAction extends HttpServlet {
+public class Signup extends HttpServlet {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
@@ -41,17 +41,18 @@ public class SignupAction extends HttpServlet {
         GenericDao userDao = new GenericDao(User.class);
 
         User user = new User(
-                req.getParameter("name")
+                req.getParameter("userName")
                 ,req.getParameter("password")
 //              ,hashedPassword // use this line instead once password hashing is re-implemented
         );
 
         Role role = new Role();
         role.setRoleName("user");
+        role.setUserName(user.getUserName());
         user.addRole(role);
 
         // Check if username already in database
-        List<User> users = userDao.getByPropertyEqual("name", req.getParameter("name"));
+        List<User> users = userDao.getByPropertyEqual("userName", req.getParameter("userName"));
         int newUserId = 0;
         String errorMessage = null;
         if (users.size() > 0) {

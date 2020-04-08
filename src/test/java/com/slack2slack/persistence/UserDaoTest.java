@@ -31,7 +31,7 @@ class UserDaoTest {
     void getByIdSuccess() {
         User retrievedUser = (User)genericDao.getById(3);
         assertNotNull(retrievedUser);
-        assertEquals("JANEDOE", retrievedUser.getName());
+        assertEquals("JANEDOE", retrievedUser.getUserName());
         assertEquals("secret", retrievedUser.getPassword());
     }
 
@@ -68,7 +68,7 @@ class UserDaoTest {
         User newUser = new User("UserWithRoleTest", "specialpassword");
 
         String userRoleName = "admin";
-        Role userRole = new Role(userRoleName, newUser);
+        Role userRole = new Role(userRoleName, newUser.getUserName(), newUser);
 
         newUser.addRole(userRole);
         int id = genericDao.insert(newUser);
@@ -114,7 +114,7 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        List<User> users = genericDao.getByPropertyEqual("name", "donaldduck");
+        List<User> users = genericDao.getByPropertyEqual("userName", "donaldduck");
         assertEquals(1, users.size());
         assertEquals(4, users.get(0).getId());
     }
@@ -124,7 +124,7 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyLikeSuccess() {
-        List<User> users = genericDao.getByPropertyLike("name", "e");
+        List<User> users = genericDao.getByPropertyLike("userName", "e");
         assertEquals(3, users.size());
     }
 }

@@ -7,11 +7,11 @@ values (1, 'test', 'password123'),
 
 delete from user_role;
 insert into user_role
-values (1, 'admin', 'test'),
-       (2, 'user', 'test'),
-       (3, 'user', 'person'),
-       (4, 'user', 'JANEDOE'),
-       (5, 'user', 'donaldduck');
+values (1, 'admin', 1, 'test'),
+       (2, 'user', 1, 'test'),
+       (3, 'user', 2, 'person'),
+       (4, 'user', 3, 'JANEDOE'),
+       (5, 'user', 4, 'donaldduck');
 
 delete from template;
 INSERT INTO `template`

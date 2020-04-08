@@ -41,7 +41,7 @@ public class RoleDaoTest {
     void insertSuccess() {
         GenericDao userDao = new GenericDao(User.class);
         User user = (User)userDao.getById(4);
-        Role newRole = new Role("admin", user);
+        Role newRole = new Role("admin", user.getUserName(), user);
         user.addRole(newRole);
 
         int id = genericDao.insert(newRole);

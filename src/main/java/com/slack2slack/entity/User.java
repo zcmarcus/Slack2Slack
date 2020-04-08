@@ -19,7 +19,8 @@ public class User implements java.io.Serializable {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
-    private String name;
+    @Column(name = "user_name")
+    private String userName;
 
     private String password;
 
@@ -38,11 +39,11 @@ public class User implements java.io.Serializable {
     /**
      * Instantiates a new User.
      *
-     * @param name     the name
+     * @param userName     the user name
      * @param password the password
      */
-    public User(String name, String password) {
-        this.name = name;
+    public User(String userName, String password) {
+        this.userName = userName;
         this.password = password;
     }
 
@@ -65,21 +66,21 @@ public class User implements java.io.Serializable {
     }
 
     /**
-     * Gets name.
+     * Gets the user name.
      *
-     * @return the name
+     * @return the user name
      */
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
     /**
-     * Sets name.
+     * Sets the user name.
      *
-     * @param name the name
+     * @param userName the user name
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     /**
@@ -182,20 +183,20 @@ public class User implements java.io.Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return id == user.id &&
-                Objects.equals(name, user.name) &&
+                Objects.equals(userName, user.userName) &&
                 Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, password);
+        return Objects.hash(id, userName, password);
     }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

@@ -15,8 +15,8 @@
 
                 <form class="form" action="signupAction" method="post">
                     <div class="form-group">
-                        <label for="name">User name: </label>
-                        <input class="form-control" type="text" name="name" id="name" required pattern="[a-zA-Z0-9]{1}[a-zA-Z0-9_]{0,29}"  maxlength="30">
+                        <label for="userName">User name: </label>
+                        <input class="form-control" type="text" name="userName" id="userName" required pattern="[a-zA-Z0-9]{1}[a-zA-Z0-9_]{0,29}"  maxlength="30">
                     </div>
                     <div class="form-group">
                         <label for="password">Password: </label>

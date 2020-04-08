@@ -21,14 +21,13 @@ public class Role {
     @Column(name = "role_name")
     private String roleName;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id",
-//            foreignKey = @ForeignKey(name = "user_role_user_id_fk")
-//    )
-//    private User user;
+    @Column(name = "user_name")
+    private String userName;
 
     @ManyToOne
-    @JoinColumn(name = "user_name", referencedColumnName = "name")
+    @JoinColumn(name = "user_id",
+            foreignKey = @ForeignKey(name = "user_role_user_id_fk")
+    )
     private User user;
 
     /**
@@ -43,8 +42,9 @@ public class Role {
      * @param roleName the role name
      * @param user     the user
      */
-    public Role(String roleName, User user) {
+    public Role(String roleName, String userName, User user) {
         this.roleName = roleName;
+        this.userName = userName;
         this.user = user;
     }
 
@@ -85,6 +85,24 @@ public class Role {
     }
 
     /**
+     * Gets user name.
+     *
+     * @return the user name
+     */
+    public String getUserName() {
+        return userName;
+    }
+
+    /**
+     * Sets user name.
+     *
+     * @param userName the user name
+     */
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    /**
      * Gets user.
      *
      * @return the user
@@ -109,20 +127,13 @@ public class Role {
         Role role = (Role) o;
         return id == role.id &&
                 Objects.equals(roleName, role.roleName) &&
+                Objects.equals(userName, role.userName) &&
                 Objects.equals(user, role.user);
-    }
 
+    }
     @Override
     public int hashCode() {
-        return Objects.hash(id, roleName, user);
+        return Objects.hash(id, roleName, userName, user);
     }
 
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", user='" + user + '\'' +
-                ", roleName='" + roleName + '\'' +
-                '}';
-    }
 }

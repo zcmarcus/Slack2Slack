@@ -1,11 +1,15 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
+
+            <%-- Only display form link to logged in users--%>
+            <c:if  test="${pageContext.request.isUserInRole('user')}">
+                <li class="nav-item">
+                    <a class="nav-link" href="configureWorkspace.jsp">Slack Workspace Template Form</a>
+                </li>
+            </c:if>
             <li class="nav-item">
-                <a class="nav-link" href="configureWorkspace.jsp">Slack Workspace Template Form</a>
-            </li>
-            <li class="nav-item">
-                 <a href="login.jsp" class="btn btn-outline-primary px-3 mx-3">Log In</a>
+                 <a class="btn btn-outline-primary px-3 mx-3" href="loginAction">Log In</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="signup.jsp">Sign Up</a>

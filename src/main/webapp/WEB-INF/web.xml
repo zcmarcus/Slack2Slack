@@ -30,13 +30,18 @@
     </auth-constraint>
   </security-constraint>
 
-<!-- Define constraint for explicit navigation to login form-->
+<!-- Define constraint for explicit navigation to login form. Actually uses a separate redirect
+     to circumvent issues with directly linking to <form-login-page>
+
+     reference: https://stackoverflow.com/questions/38749266/tomcat-8-invalid-direct-reference-to-form-login-page
+     -->
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>login</web-resource-name>
-      <url-pattern>/login.jsp</url-pattern>
+      <url-pattern>/loginAction</url-pattern>
     </web-resource-collection>
     <auth-constraint>
+      <role-name>admin</role-name>
       <role-name>user</role-name>
     </auth-constraint>
   </security-constraint>
