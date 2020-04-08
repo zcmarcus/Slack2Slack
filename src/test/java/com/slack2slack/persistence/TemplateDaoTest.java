@@ -102,4 +102,13 @@ public class TemplateDaoTest {
         assertEquals(1, templates.size());
         assertEquals(1, templates.get(0).getId());
     }
+
+    /**
+     * Verify successful get by property (like match)
+     */
+    @Test
+    void getByPropertyLikeSuccess() {
+        List<Template> templates = genericDao.getByPropertyLike("name", "a");
+        assertEquals(1, templates.size());
+    }
 }

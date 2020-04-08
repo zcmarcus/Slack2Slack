@@ -1,9 +1,7 @@
 package com.slack2slack.persistence;
 
 import com.slack2slack.entity.Channel;
-import com.slack2slack.entity.Role;
 import com.slack2slack.entity.Template;
-import com.slack2slack.entity.User;
 import com.slack2slack.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -53,6 +51,19 @@ public class ChannelDaoTest {
     }
 
     /**
+     * Verify successful update of a channel
+     */
+    @Test
+    void updateSuccess() {
+        String newChannelName = "Updated_Channel";
+        Channel channelToUpdate = (Channel)genericDao.getById(2);
+        channelToUpdate.setName(newChannelName);
+        genericDao.saveOrUpdate(channelToUpdate);
+        Channel retrievedChannel = (Channel)genericDao.getById(2);
+        assertEquals(channelToUpdate, retrievedChannel);
+    }
+
+    /**
      * Verify successful delete of a channel also deletes it from the template
      */
     @Test
@@ -83,5 +94,14 @@ public class ChannelDaoTest {
         List<Channel> channels = genericDao.getByPropertyEqual("template", 1);
         assertEquals(3, channels.size());
         assertEquals(1, channels.get(0).getId());
+    }
+
+    /**
+     * Verify successful get by property (like match)
+     */
+    @Test
+    void getByPropertyLikeSuccess() {
+        List<Template> templates = genericDao.getByPropertyLike("name", "week");
+        assertEquals(2, templates.size());
     }
 }
