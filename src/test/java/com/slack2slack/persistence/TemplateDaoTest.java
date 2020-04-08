@@ -1,6 +1,5 @@
 package com.slack2slack.persistence;
 
-import com.slack2slack.entity.Role;
 import com.slack2slack.entity.Template;
 import com.slack2slack.entity.Channel;
 import com.slack2slack.entity.User;
@@ -99,8 +98,9 @@ public class TemplateDaoTest {
      */
     @Test
     void getByPropertyEqualSuccess() {
-        //TODO: How to get templates by user? List<Template> templates = genericDao.getByPropertyEqual("user", "2");
-        //assertEquals(1, templates.size());
-        //assertEquals(2, templates.get(0).getId());
+        //TODO: Get all templates by user_Id...running into error though
+        List<Template> templates = genericDao.getByPropertyEqual("name", "Basic");
+        assertEquals(1, templates.size());
+        assertEquals(1, templates.get(0).getId());
     }
 }
