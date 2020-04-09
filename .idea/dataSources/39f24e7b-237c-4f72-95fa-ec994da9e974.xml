@@ -1553,25 +1553,16 @@ post_id</ColNames>
       <DataType>varchar(30)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="370" parent="295" name="user_name_UNIQUE">
-      <ColNames>user_name</ColNames>
-      <Unique>1</Unique>
-      <Type>btree</Type>
-    </index>
-    <index id="371" parent="295" name="user_role_user_id_fk">
+    <index id="370" parent="295" name="user_role_user_id_fk">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="372" parent="295" name="PRIMARY">
+    <key id="371" parent="295" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="373" parent="295" name="user_name_UNIQUE">
-      <ColNames>user_name</ColNames>
-      <UnderlyingIndexName>user_name_UNIQUE</UnderlyingIndexName>
-    </key>
-    <foreign-key id="374" parent="295" name="user_role_user_id_fk">
+    <foreign-key id="372" parent="295" name="user_role_user_id_fk">
       <ColNames>user_id</ColNames>
       <RefTableName>user</RefTableName>
       <RefColNames>id</RefColNames>

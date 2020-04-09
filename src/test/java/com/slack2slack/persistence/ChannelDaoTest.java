@@ -17,7 +17,7 @@ public class ChannelDaoTest {
     void setUp() {
 
         Database database = Database.getInstance();
-        database.runSQL("cleandb_v2.sql");
+        database.runSQL("clean_db.sql");
 
         genericDao = new GenericDao(Channel.class);
     }
