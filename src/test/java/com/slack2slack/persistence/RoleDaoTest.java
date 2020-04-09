@@ -1,6 +1,7 @@
 package com.slack2slack.persistence;
 
 import com.slack2slack.entity.Role;
+import com.slack2slack.entity.Template;
 import com.slack2slack.entity.User;
 import com.slack2slack.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;
@@ -79,6 +80,16 @@ public class RoleDaoTest {
     @Test
     void getByPropertyEqualSuccess() {
         List<Role> roles = genericDao.getByPropertyEqual("roleName", "user");
+        assertEquals(4, roles.size());
+        assertEquals(2, roles.get(0).getId());
+    }
+
+    /**
+     * Verify successful get by property (like match)
+     */
+    @Test
+    void getByPropertyLikeSuccess() {
+        List<Role> roles = genericDao.getByPropertyLike("roleName", "u");
         assertEquals(4, roles.size());
         assertEquals(2, roles.get(0).getId());
     }

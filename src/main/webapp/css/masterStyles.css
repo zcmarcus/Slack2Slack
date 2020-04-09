@@ -1,1 +1,24 @@
-/*Just a placeholder for now*/
+body {
+    background-color: #e6e6e6;
+}
+
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#welcome {
+    text-align: center;
+    padding-top: 1em;
+}
+
+#welcomeToSlack2Slack {
+    text-align: center;
+}
+
+.line {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #8a25b1;
+}

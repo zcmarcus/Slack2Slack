@@ -1,6 +1,7 @@
 package com.slack2slack.persistence;
 
 import com.slack2slack.entity.Role;
+import com.slack2slack.entity.Template;
 import com.slack2slack.entity.User;
 import com.slack2slack.test.util.Database;
 import org.junit.jupiter.api.BeforeEach;

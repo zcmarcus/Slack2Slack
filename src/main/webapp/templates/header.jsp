@@ -1,1 +1,1 @@
-//Just a placeholder for now!
+<img src="images/logo.png" id="logo" alt="logo" />
