@@ -7,7 +7,7 @@
     <title>Title</title>
 
     <!-- form js script -->
-    <script src="form.js"></script>
+    <script src="js/form.js"></script>
 
 </head>
 <body>
