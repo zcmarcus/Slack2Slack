@@ -15,7 +15,7 @@ public class Slack2SlackApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         HashSet h = new HashSet<Class<?>>();
-        h.add(WorkspaceService.class);
+        h.add(TemplateService.class);
         return h;
     }
 }
