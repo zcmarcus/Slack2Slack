@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 // Defines base URI for all resource URIs.
-@ApplicationPath("/services")
+@ApplicationPath("/service")
 // Java class declares root resources and provider classes
 public class Slack2SlackApplication extends Application {
 

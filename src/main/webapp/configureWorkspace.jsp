@@ -13,9 +13,11 @@
 <body>
 <div class="container">
 
+
     <h2>Configure Workspace using Template</h2>
 
     <div class="row col-6">
+
         <form action="" method="POST" class="form">
             <div>
                 <div class="form-group">
@@ -27,7 +29,7 @@
                         <c:choose>
                             <c:when test="${!empty userTemplates}">
                                 <c:forEach items="${userTemplates}" var="template">
-                                    <option>${userTemplates.getTemplateName}</option>
+                                    <option>${template.getTemplateName()}</option>
                                 </c:forEach>
                             </c:when>
                         </c:choose>
@@ -103,6 +105,7 @@
                     </div>
 
                 </div>
+
 
 
             </div>

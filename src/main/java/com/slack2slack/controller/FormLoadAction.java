@@ -31,15 +31,13 @@ public class FormLoadAction extends HttpServlet {
         HttpSession session = req.getSession();
         int userID = (int) session.getAttribute("userID");
 
-
-
         TemplatesResponseDao templatesResponseDao = new TemplatesResponseDao();
 //        if(submitAction!=null) {
         TemplatesResponse templatesResponse = templatesResponseDao.getTemplates(userID);
+        logger.debug("templates response: {}", templatesResponse);
         List<TemplatesItem> templates = templatesResponse.getTemplates();
-        req.setAttribute("searchItems", templates);
+        req.setAttribute("userTemplates", templates);
 //        }
-
 
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/configureWorkspace.jsp");

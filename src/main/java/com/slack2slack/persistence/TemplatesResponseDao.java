@@ -18,10 +18,12 @@ public class TemplatesResponseDao {
 
     public TemplatesResponse getTemplates(int userID ) {
         Client client = ClientBuilder.newClient();
+        logger.debug("user ID: {}", userID);
         WebTarget target =
-                client.target("http://localhost:8080/slack2slack/templates" // TODO: remove hard-coded values
+                client.target("http://localhost:8080/slack2slack/service/templates/" // TODO: remove hard-coded values
                         + userID);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+        logger.debug(response);
         ObjectMapper mapper = new ObjectMapper();
         TemplatesResponse retrievedTemplates = null;
         try {

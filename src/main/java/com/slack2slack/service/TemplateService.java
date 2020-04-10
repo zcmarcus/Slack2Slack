@@ -38,13 +38,13 @@ public class TemplateService {
     @GET
     @Produces("application/json")
     // Param is user id.
-    @Path("/{userID}")
-    public Response getTemplates(@PathParam("userID") int userID) {
+    @Path("/{param}")
+    public Response getTemplates(@PathParam("param") int userID) {
         JsonArrayBuilder templatesArray = Json.createArrayBuilder();
 
         templateDao = new GenericDao(Template.class);
         List<Template> templates = templateDao.getByPropertyEqual("user", userID);
-
+        logger.debug(templates);
         // Read owner profile from JSON stored in database as String and convert to JsonNode object
         for (Template template: templates) {
             ObjectMapper mapper = new ObjectMapper();
@@ -101,7 +101,7 @@ public class TemplateService {
 
         // Nest template JSON objects within allTemplatesObject
         JsonObject allTemplatesObject = Json.createObjectBuilder()
-                .add("userTemplates", templatesArray)
+                .add("templates", templatesArray)
                 .build();
 
         logger.debug(allTemplatesObject);

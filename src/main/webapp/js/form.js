@@ -12,7 +12,11 @@ const init = () => {
     let addChannelListener = document.querySelector("#addChannelButton");
     addChannelListener.addEventListener("click", addChannel);
 
-}
+    // Create event listener for "Choose Template" select element
+    let chooseTemplate = document.querySelector("#chooseTemplate");
+    chooseTemplateListener.addEventListener("click", chooseTemplate);
+
+};
 
 /*
     Function appends a new set of channel form inputs beneath existing channels. 
@@ -89,7 +93,7 @@ const addChannel = event => {
         channelCounter++;
     // }
 
-}
+};
 
 
 /*
@@ -100,7 +104,14 @@ const deleteChannel = event => {
     let channelDetails = event.currentTarget.parentElement;
     channelDetails.innerHTML = "";
     channelDetails.style.display = "none";
+};
+
+
+const chooseTemplate = event => {
+
 }
+
+
 
 
 /*
