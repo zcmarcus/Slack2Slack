@@ -26,7 +26,7 @@ public class UserService {
     @Produces("application/json")
     // Param is user id.
     @Path("/{param}")
-    public Response getWorkspaceDetailsAndChannels(@PathParam("param") int id) {
+    public Response getTemplates(@PathParam("param") int id) {
         JsonObject output = null;
 
 
