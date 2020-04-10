@@ -18,7 +18,7 @@
 - [X] Create additional JSPs: workspace template form page, templates (reusable pieces), home page
 - [X] Create JavaScript logic behind workspace template form
 - [ ] Write additional tests to ensure sufficient code coverage for all entities
-- [ ] Code servlets for passing data between JSPs
+- [X] Code servlets for passing data between JSPs
 - [ ] Finalize structure and styling for most of remaining JSPs
 - [ ] Construct servlet code connecting data entered in web application to web service endpoints/operations.
 - [ ] Tests with Slack API to ensure web service can secure proper permissions to modify user's Slack Workspace
