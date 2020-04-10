@@ -18,6 +18,18 @@ import java.util.ArrayList;
  */
 @Path("/workspaces")
 public class WorkspaceService {
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Produces response with workspace details and all contained channels.
      */
@@ -74,4 +86,10 @@ public class WorkspaceService {
         }
         return Response.status(200).entity(output).build();
     }
+
+
+
+
 }
+
+
