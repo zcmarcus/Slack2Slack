@@ -7,6 +7,8 @@ import java.util.Properties;
  *
  */
 public interface PropertiesLoader {
+
+//    TODO: implement to simplify loading of special properties files
 //
 //    default Properties loadProperties(String propertiesFilePath) throws Exception {
 //        Properties properties = new Properties();
