@@ -1,4 +1,4 @@
-<!-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> -->
+<%@include file="templates/head.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +11,10 @@
 
 </head>
 <body>
+<%@include file="templates/header.jsp"%>
 <div class="container">
 
-    <h2>Configure Workspace using Template</h2>
+    <h2 id="configWorkspace">Configure Workspace using Template</h2>
 
     <div class="row col-6">
         <form action="" method="POST" class="form">

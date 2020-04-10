@@ -5,9 +5,7 @@
 </head>
 <body>
 <%@include file="templates/header.jsp"%>
-<div class="line">
 
-</div>
 <div class="container">
     <h2>Sign In</h2>
     <div class="row col-6">
