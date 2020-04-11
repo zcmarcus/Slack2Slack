@@ -2,18 +2,18 @@ package com.slack2slack.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.json.JsonObject;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 /**
- * Represents a template for a Slack workspace
+ * Represents a template with (profile info exploded into separate fields) for a Slack workspace
  */
 @Entity(name = "Template")
 @Table(name = "template")
 public class Template {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO, generator="native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -21,9 +21,15 @@ public class Template {
 
     private String name;
 
-    private  String iconUrl;
+    private String iconUrl;
 
-    private String primaryOwnerProfile;
+    private String ownerFirstName;
+
+    private String ownerLastName;
+
+    private String ownerDisplayName;
+
+    private String ownerEmail;
 
     @ManyToOne
     @JoinColumn(name = "user_Id",
@@ -40,18 +46,13 @@ public class Template {
     public Template() {
     }
 
-    /**
-     * Instantiates a new Template.
-     *
-     * @param name                the name
-     * @param iconUrl             the icon url
-     * @param primaryOwnerProfile the primary owner profile
-     * @param user                the slack2slack user
-     */
-    public Template(String name, String iconUrl, String primaryOwnerProfile, User user) {
+    public Template(String name, String iconUrl, String ownerFirstName, String ownerLastName, String ownerDisplayName, String ownerEmail, User user) {
         this.name = name;
         this.iconUrl = iconUrl;
-        this.primaryOwnerProfile = primaryOwnerProfile;
+        this.ownerFirstName = ownerFirstName;
+        this.ownerLastName = ownerLastName;
+        this.ownerDisplayName = ownerDisplayName;
+        this.ownerEmail = ownerEmail;
         this.user = user;
     }
 
@@ -110,21 +111,75 @@ public class Template {
     }
 
     /**
-     * Gets primary owner profile.
+     * Gets owner first name.
      *
-     * @return the primary owner profile
+     * @return the owner first name
      */
-    public String getPrimaryOwnerProfile() {
-        return primaryOwnerProfile;
+    public String getOwnerFirstName() {
+        return ownerFirstName;
     }
 
     /**
-     * Sets primary owner profile.
+     * Sets owner first name.
      *
-     * @param primaryOwnerProfile the primary owner profile
+     * @param ownerFirstName the owner first name
      */
-    public void setPrimaryOwnerProfile(String primaryOwnerProfile) {
-        this.primaryOwnerProfile = primaryOwnerProfile;
+    public void setOwnerFirstName(String ownerFirstName) {
+        this.ownerFirstName = ownerFirstName;
+    }
+
+    /**
+     * Gets owner last name.
+     *
+     * @return the owner last name
+     */
+    public String getOwnerLastName() {
+        return ownerLastName;
+    }
+
+    /**
+     * Sets owner last name.
+     *
+     * @param ownerLastName the owner last name
+     */
+    public void setOwnerLastName(String ownerLastName) {
+        this.ownerLastName = ownerLastName;
+    }
+
+    /**
+     * Gets owner display name.
+     *
+     * @return the owner display name
+     */
+    public String getOwnerDisplayName() {
+        return ownerDisplayName;
+    }
+
+    /**
+     * Sets owner display name.
+     *
+     * @param ownerDisplayName the owner display name
+     */
+    public void setOwnerDisplayName(String ownerDisplayName) {
+        this.ownerDisplayName = ownerDisplayName;
+    }
+
+    /**
+     * Gets owner email.
+     *
+     * @return the owner email
+     */
+    public String getOwnerEmail() {
+        return ownerEmail;
+    }
+
+    /**
+     * Sets owner email.
+     *
+     * @param ownerEmail the owner email
+     */
+    public void setOwnerEmail(String ownerEmail) {
+        this.ownerEmail = ownerEmail;
     }
 
     /**
@@ -183,21 +238,25 @@ public class Template {
         channel.setTemplate(null);
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Template template = (Template) o;
-        return id == template.id &&
-                Objects.equals(name, template.name) &&
-                Objects.equals(iconUrl, template.iconUrl) &&
-                Objects.equals(primaryOwnerProfile, template.primaryOwnerProfile) &&
-                Objects.equals(user, template.user);
+        Template that = (Template) o;
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(iconUrl, that.iconUrl) &&
+                Objects.equals(ownerFirstName, that.ownerFirstName) &&
+                Objects.equals(ownerLastName, that.ownerLastName) &&
+                Objects.equals(ownerDisplayName, that.ownerDisplayName) &&
+                Objects.equals(ownerEmail, that.ownerEmail) &&
+                Objects.equals(user, that.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, iconUrl, primaryOwnerProfile, user);
+        return Objects.hash(id, name, iconUrl, ownerFirstName, ownerLastName, ownerDisplayName, ownerEmail, user);
     }
 
     @Override
@@ -206,7 +265,10 @@ public class Template {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", iconUrl='" + iconUrl + '\'' +
-                ", primaryOwnerProfile=" + primaryOwnerProfile +
+                ", ownerFirstName='" + ownerFirstName + '\'' +
+                ", ownerLastName='" + ownerLastName + '\'' +
+                ", ownerDisplayName='" + ownerDisplayName + '\'' +
+                ", ownerEmail='" + ownerEmail + '\'' +
                 '}';
     }
 }

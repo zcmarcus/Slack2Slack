@@ -55,7 +55,7 @@ public class TemplateDaoTest {
         GenericDao userDao = new GenericDao(User.class);
         User user = (User)userDao.getById(2);
 
-        Template newTemplate = new Template("New Template", "www.fakeimage.com", "{\"email\": \"newemail@gmail.com\", \"last_name\": \"Jones\", \"first_name\": \"Joe\", \"display_name\": \"MrJones\"}", user);
+        Template newTemplate = new Template("New Template", "www.fakeimage.com", "Joe", "Jones",  "MrJones", "newemail@gmail.com", user);
         int id = genericDao.insert(newTemplate);
         assertNotEquals(0,id);
         Template insertedTemplate = (Template)genericDao.getById(id);

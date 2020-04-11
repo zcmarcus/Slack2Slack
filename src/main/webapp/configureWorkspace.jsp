@@ -17,25 +17,8 @@
     <h2>Configure Workspace using Template</h2>
 
     <div class="row col-6">
-
+        <%--        TODO: change form action to servlet that handles call(s) to webservice to: 1.) create new template and 2.) create slack workspace--%>
         <form action="" method="POST" class="form">
-            <div>
-                <div class="form-group">
-                    <label for="chooseTemplate">Choose Template: </label>
-                    <select class="form-control" name="chooseTemplate" id="chooseTemplate">
-                        <option selected>Choose...</option>
-                        <option>Create New Template</option>
-                        <%--  FIXME: Change to actual variable and method names--%>
-                        <c:choose>
-                            <c:when test="${!empty userTemplates}">
-                                <c:forEach items="${userTemplates}" var="template">
-                                    <option>${template.getTemplateName()}</option>
-                                </c:forEach>
-                            </c:when>
-                        </c:choose>
-                    </select>
-                </div>
-            </div>
 
             <%-- Template name (only used in our web app; has no bearing on Slack workspace)--%>
             <div>

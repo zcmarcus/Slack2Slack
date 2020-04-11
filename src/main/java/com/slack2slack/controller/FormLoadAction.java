@@ -1,8 +1,7 @@
 package com.slack2slack.controller;
 
-import com.slack2slack.consume.TemplatesItem;
-import com.slack2slack.consume.TemplatesResponse;
-import com.slack2slack.entity.Template;
+import com.slack2slack.consume.TemplateItem;
+import com.slack2slack.consume.TemplatesCollection;
 import com.slack2slack.persistence.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet (
@@ -32,12 +30,39 @@ public class FormLoadAction extends HttpServlet {
         int userID = (int) session.getAttribute("userID");
 
         TemplatesResponseDao templatesResponseDao = new TemplatesResponseDao();
-//        if(submitAction!=null) {
-        TemplatesResponse templatesResponse = templatesResponseDao.getTemplates(userID);
-        logger.debug("templates response: {}", templatesResponse);
-        List<TemplatesItem> templates = templatesResponse.getTemplates();
+        TemplatesCollection templatesCollection = templatesResponseDao.getTemplates(userID);
+        List<TemplateItem> templates = templatesCollection.getTemplates();
+        logger.debug("templates : {}", templates);
+
         req.setAttribute("userTemplates", templates);
-//        }
+
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/chooseTemplate.jsp");
+        dispatcher.forward(req, resp);
+
+
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        if(req.getParameter("chooseTemplate").equals("new")) {
+            // Show blank template
+
+        } else {
+            int templateID = Integer.parseInt(req.getParameter("chooseTemplate"));
+
+
+
+//            List<TemplatesItem> templates = (List<TemplatesItem>)session.getAttribute("userTemplates");
+
+            TemplatesResponseDao templatesResponseDao = new TemplatesResponseDao();
+            TemplateItem template = templatesResponseDao.getTemplateByID(templateID);
+
+            req.setAttribute("currentTemplate", template);
+        }
+
+
 
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/configureWorkspace.jsp");

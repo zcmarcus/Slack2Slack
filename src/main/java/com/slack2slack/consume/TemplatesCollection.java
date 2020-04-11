@@ -3,23 +3,23 @@ package com.slack2slack.consume;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TemplatesResponse {
+public class TemplatesCollection{
 
 	@JsonProperty("templates")
-	private List<TemplatesItem> templates;
+	private List<TemplateItem> templates;
 
-	public void setTemplates(List<TemplatesItem> templates){
+	public void setTemplates(List<TemplateItem> templates){
 		this.templates = templates;
 	}
 
-	public List<TemplatesItem> getTemplates(){
+	public List<TemplateItem> getTemplates(){
 		return templates;
 	}
 
 	@Override
  	public String toString(){
 		return 
-			"Response{" + 
+			"TemplatesCollection{" + 
 			"templates = '" + templates + '\'' + 
 			"}";
 		}

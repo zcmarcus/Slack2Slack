@@ -10,12 +10,15 @@ create table user
 
 create table template
 (
-    id                  int auto_increment
+    id               int auto_increment
         primary key,
-    name                varchar(50)  null,
-    iconUrl             varchar(100) null,
-    primaryOwnerProfile text         null,
-    user_Id             int          null,
+    name             varchar(50)  null,
+    iconUrl          varchar(100) null,
+    ownerFirstName   varchar(30)  null,
+    ownerLastName    varchar(30)  null,
+    ownerDisplayName varchar(30)  null,
+    ownerEmail       varchar(50)  null,
+    user_Id          int          null,
     constraint template_user_id_fk
         foreign key (user_Id) references user (id)
             on update cascade on delete cascade

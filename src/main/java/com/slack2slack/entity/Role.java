@@ -1,6 +1,7 @@
 package com.slack2slack.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.util.Objects;
@@ -25,6 +26,7 @@ public class Role {
     private String userName;
 
     @ManyToOne
+    @JsonBackReference
     @JoinColumn(name = "user_id",
             foreignKey = @ForeignKey(name = "user_role_user_id_fk")
     )
