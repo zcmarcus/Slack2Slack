@@ -12,6 +12,5 @@ public class SlackApiTest {
         // This is just an easy way to test that the app is creating a channel for the time being
         SlackApi slackApi = new SlackApi("insert-private-token-here");
         slackApi.createChannel("kellytest");
-
     }
 }
