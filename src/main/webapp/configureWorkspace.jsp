@@ -1,4 +1,5 @@
 <%@include file="templates/head.jsp"%>
+<c:set var="title" value="Configure Workspace" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
