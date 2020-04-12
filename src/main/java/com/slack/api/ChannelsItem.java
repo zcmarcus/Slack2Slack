@@ -3,16 +3,13 @@ package com.slack.api;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PublicChannelItem {
+public class ChannelsItem{
 
 	@JsonProperty("is_private")
 	private boolean isPrivate;
 
 	@JsonProperty("creator")
 	private String creator;
-
-	@JsonProperty("is_im")
-	private boolean isIm;
 
 	@JsonProperty("is_member")
 	private boolean isMember;
@@ -29,23 +26,11 @@ public class PublicChannelItem {
 	@JsonProperty("name_normalized")
 	private String nameNormalized;
 
-	@JsonProperty("is_ext_shared")
-	private boolean isExtShared;
-
-	@JsonProperty("is_pending_ext_shared")
-	private boolean isPendingExtShared;
-
-	@JsonProperty("is_group")
-	private boolean isGroup;
-
 	@JsonProperty("unlinked")
 	private int unlinked;
 
 	@JsonProperty("is_archived")
 	private boolean isArchived;
-
-	@JsonProperty("pending_shared")
-	private List<Object> pendingShared;
 
 	@JsonProperty("is_channel")
 	private boolean isChannel;
@@ -55,6 +40,9 @@ public class PublicChannelItem {
 
 	@JsonProperty("is_shared")
 	private boolean isShared;
+
+	@JsonProperty("members")
+	private List<String> members;
 
 	@JsonProperty("num_members")
 	private int numMembers;
@@ -88,14 +76,6 @@ public class PublicChannelItem {
 
 	public String getCreator(){
 		return creator;
-	}
-
-	public void setIsIm(boolean isIm){
-		this.isIm = isIm;
-	}
-
-	public boolean isIsIm(){
-		return isIm;
 	}
 
 	public void setIsMember(boolean isMember){
@@ -138,30 +118,6 @@ public class PublicChannelItem {
 		return nameNormalized;
 	}
 
-	public void setIsExtShared(boolean isExtShared){
-		this.isExtShared = isExtShared;
-	}
-
-	public boolean isIsExtShared(){
-		return isExtShared;
-	}
-
-	public void setIsPendingExtShared(boolean isPendingExtShared){
-		this.isPendingExtShared = isPendingExtShared;
-	}
-
-	public boolean isIsPendingExtShared(){
-		return isPendingExtShared;
-	}
-
-	public void setIsGroup(boolean isGroup){
-		this.isGroup = isGroup;
-	}
-
-	public boolean isIsGroup(){
-		return isGroup;
-	}
-
 	public void setUnlinked(int unlinked){
 		this.unlinked = unlinked;
 	}
@@ -176,14 +132,6 @@ public class PublicChannelItem {
 
 	public boolean isIsArchived(){
 		return isArchived;
-	}
-
-	public void setPendingShared(List<Object> pendingShared){
-		this.pendingShared = pendingShared;
-	}
-
-	public List<Object> getPendingShared(){
-		return pendingShared;
 	}
 
 	public void setIsChannel(boolean isChannel){
@@ -208,6 +156,14 @@ public class PublicChannelItem {
 
 	public boolean isIsShared(){
 		return isShared;
+	}
+
+	public void setMembers(List<String> members){
+		this.members = members;
+	}
+
+	public List<String> getMembers(){
+		return members;
 	}
 
 	public void setNumMembers(int numMembers){
@@ -264,21 +220,17 @@ public class PublicChannelItem {
 			"ChannelsItem{" + 
 			"is_private = '" + isPrivate + '\'' + 
 			",creator = '" + creator + '\'' + 
-			",is_im = '" + isIm + '\'' + 
 			",is_member = '" + isMember + '\'' + 
 			",is_mpim = '" + isMpim + '\'' + 
 			",purpose = '" + purpose + '\'' + 
 			",created = '" + created + '\'' + 
 			",name_normalized = '" + nameNormalized + '\'' + 
-			",is_ext_shared = '" + isExtShared + '\'' + 
-			",is_pending_ext_shared = '" + isPendingExtShared + '\'' + 
-			",is_group = '" + isGroup + '\'' + 
 			",unlinked = '" + unlinked + '\'' + 
 			",is_archived = '" + isArchived + '\'' + 
-			",pending_shared = '" + pendingShared + '\'' + 
 			",is_channel = '" + isChannel + '\'' + 
 			",is_general = '" + isGeneral + '\'' + 
 			",is_shared = '" + isShared + '\'' + 
+			",members = '" + members + '\'' + 
 			",num_members = '" + numMembers + '\'' + 
 			",name = '" + name + '\'' + 
 			",topic = '" + topic + '\'' + 

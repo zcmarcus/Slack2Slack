@@ -3,10 +3,10 @@ package com.slack.api;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PublicChannelsResponse{
+public class PublicChannelsResponse {
 
 	@JsonProperty("channels")
-	private List<PublicChannelItem> channels;
+	private List<ChannelsItem> channels;
 
 	@JsonProperty("response_metadata")
 	private ResponseMetadata responseMetadata;
@@ -14,11 +14,11 @@ public class PublicChannelsResponse{
 	@JsonProperty("ok")
 	private boolean ok;
 
-	public void setChannels(List<PublicChannelItem> channels){
+	public void setChannels(List<ChannelsItem> channels){
 		this.channels = channels;
 	}
 
-	public List<PublicChannelItem> getChannels(){
+	public List<ChannelsItem> getChannels(){
 		return channels;
 	}
 
@@ -41,7 +41,7 @@ public class PublicChannelsResponse{
 	@Override
  	public String toString(){
 		return 
-			"PublicChannelsResponse{" + 
+			"ChannelsListResponse{" + 
 			"channels = '" + channels + '\'' + 
 			",response_metadata = '" + responseMetadata + '\'' + 
 			",ok = '" + ok + '\'' + 

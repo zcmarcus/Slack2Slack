@@ -1,6 +1,8 @@
 package com.slack2slack.api;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.slack.api.PublicChannelsResponse;
 import com.slack2slack.util.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,6 +36,13 @@ public class SlackApi implements PropertiesLoader {
      */
     public SlackApi(String token) {
         this.token = token;
+        try {
+            slackApiProperties = loadProperties("/slack.api.properties");
+        } catch (IOException io) {
+            logger.debug("There was a problem reading the file: " + io);
+        } catch (Exception e) {
+            logger.debug("Encountered a problem: " + e);
+        }
     }
 
     /**
@@ -43,19 +52,10 @@ public class SlackApi implements PropertiesLoader {
      * @param channelName the channel name. Channel names may only contain lowercase letters, numbers, hyphens, and underscores,
      * and must be 80 characters or less.
      */
-    void createChannel(String channelName) {
-
-        try {
-            slackApiProperties = loadProperties("/slack.api.properties");
-        } catch (IOException io) {
-            logger.debug("There was a problem reading the file: " + io);
-        } catch (Exception e) {
-            logger.debug("Encountered a problem: " + e);
-        }
+    public Response createChannel(String channelName) {
 
         CreateConversationParameters parameters = new CreateConversationParameters();
         parameters.setName(channelName);
-
 
         Client client = ClientBuilder.newClient();
         WebTarget target =
@@ -66,8 +66,31 @@ public class SlackApi implements PropertiesLoader {
                 .header("Content-type", "application/json")
                 .post(Entity.json(parameters));
 
-
+        logger.debug(response);
         //TODO Request works but we still need to do something with the response.
+        return response;
+
+    }
+
+
+    public PublicChannelsResponse getChannels() {
+
+        Client client = ClientBuilder.newClient();
+        WebTarget target =
+                client.target(slackApiProperties.getProperty("conversations.list.target") + "?token=" + token);
+        String response = target
+                .request().get(String.class);
+
+        ObjectMapper mapper = new ObjectMapper();
+        PublicChannelsResponse publicChannelsResponse = null;
+        try {
+            publicChannelsResponse = mapper.readValue(response, PublicChannelsResponse.class);
+        } catch (JsonProcessingException e) {
+            logger.error("Error processing response as JSON");
+            logger.error(e);
+        }
+        logger.debug(response);
+        return publicChannelsResponse;
 
     }
 }
