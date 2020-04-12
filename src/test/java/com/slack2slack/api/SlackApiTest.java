@@ -25,7 +25,7 @@ public class SlackApiTest implements PropertiesLoader {
     @BeforeEach
     public void setup() {
         try {
-            slackApiProperties = loadProperties("/slack.api.properties");
+            slackApiProperties = loadProperties("/slack.secrets.properties");
 
         } catch (IOException io) {
             logger.debug("There was a problem reading the file: " + io);
@@ -41,7 +41,7 @@ public class SlackApiTest implements PropertiesLoader {
         // You can find the bot token for 'SlacKerZ' app at this link
         // https://api.slack.com/apps/A011ARSEDGC/oauth?
         // This is just an easy way to test that the app is creating a channel for the time being
-        SlackApi slackApi = new SlackApi("token here");
+        SlackApi slackApi = new SlackApi(slackApiProperties.getProperty("botuser.oauth.accesstoken"));
         String newChannel = "newTestChannel";
 
         Response response = slackApi.createChannel(newChannel);

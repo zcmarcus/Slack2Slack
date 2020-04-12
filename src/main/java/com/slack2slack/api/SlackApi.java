@@ -1,6 +1,7 @@
 package com.slack2slack.api;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.slack.api.PublicChannelsResponse;
 import com.slack2slack.util.PropertiesLoader;
@@ -82,6 +83,7 @@ public class SlackApi implements PropertiesLoader {
                 .request().get(String.class);
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         PublicChannelsResponse publicChannelsResponse = null;
         try {
             publicChannelsResponse = mapper.readValue(response, PublicChannelsResponse.class);
