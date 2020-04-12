@@ -33,11 +33,11 @@ public class LoginAction extends HttpServlet {
 
         int userID = 0;
         List<User> user = userDao.getByPropertyEqual("userName", req.getRemoteUser());
-        logger.debug(user.toString());
+//        logger.debug(user.toString());
         if (user.size() == 1) {
             userID = user.get(0).getId();
         }
-        logger.debug(userID);
+//        logger.debug(userID);
 
 
         // set userID in session for use in calls to web service

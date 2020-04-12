@@ -59,10 +59,10 @@ public class Signup extends HttpServlet {
             errorMessage = "Username already exists. Please try a different name.";
         } else {
             newUserId = userDao.insert(user);
-            logger.debug("New user with id {} created", newUserId);
+//            logger.debug("New user with id {} created", newUserId);
         }
 
-        logger.debug("Error message: {}", errorMessage);
+//        logger.debug("Error message: {}", errorMessage);
 
         req.setAttribute("errorMessage", errorMessage);
         req.getRequestDispatcher("/signupConfirmation.jsp").forward(req, resp);

@@ -1,20 +1,13 @@
-<!-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> -->
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="title" value="Configure Workspace" />
+<%@include file="templates/head.jsp"%>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
-
-    <!-- form js script -->
-    <script src="js/form.js"></script>
-
-</head>
 <body>
+<%@include file="templates/navmenu.jsp"%>
+<%@include file="templates/header.jsp"%>
 <div class="container">
 
-
-    <h2>Configure Workspace using Template</h2>
+    <h2 id="configWorkspace">Configure Workspace using Template</h2>
 
     <div class="row col-6">
         <%--        TODO: change form action to servlet that handles call(s) to webservice to: 1.) create new template and 2.) create slack workspace--%>

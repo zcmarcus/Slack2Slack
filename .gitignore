@@ -50,6 +50,10 @@ fabric.properties
 #main resources
 src/main/resources/hibernate.cfg.xml
 src/main/resources/log4j2.properties
+src/main/webapp/META-INF/context.xml
+src/main/resources/database.properties
+
+
 
 #test resources
 src/test/resources/database.properties

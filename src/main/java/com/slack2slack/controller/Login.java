@@ -28,7 +28,7 @@ public class Login extends HttpServlet {
         // TODO: Remember to comment out following line in tomcat/conf/logging.properties when not debugging:
         // 1catalina.org.apache.juli.FileHandler.bufferSize = -1
 
-        logger.error("Logged user : " + req.getRemoteUser() + " has role of user (true/false): " + req.isUserInRole("user"));
+//        logger.error("Logged user : " + req.getRemoteUser() + " has role of user (true/false): " + req.isUserInRole("user"));
         RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
         dispatcher.forward(req, resp);
     }

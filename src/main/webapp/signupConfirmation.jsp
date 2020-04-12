@@ -1,8 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="title" value="Sign Up Confirmation" />
 <%@include file="templates/head.jsp"%>
-
-
 <html>
 <body>
 <div class="container-fluid">

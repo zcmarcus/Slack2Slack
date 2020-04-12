@@ -19,12 +19,12 @@ public class TemplatesResponseDao {
 
     public TemplatesCollection getTemplates(int userID ) {
         Client client = ClientBuilder.newClient();
-        logger.debug("user ID: {}", userID);
+//        logger.debug("user ID: {}", userID);
         WebTarget target =
                 client.target("http://localhost:8080/slack2slack/service/templates/" // TODO: remove hard-coded values
                         + userID);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
-        logger.debug("response: {}", response);
+//        logger.debug("response: {}", response);
 
         ObjectMapper mapper = new ObjectMapper();
         TemplatesCollection retrievedTemplates = null;
@@ -33,19 +33,19 @@ public class TemplatesResponseDao {
         } catch (JsonProcessingException e) {
             logger.error("Encountered a problem processing JSON: {}", e);
         }
-        logger.debug(retrievedTemplates);
+//        logger.debug(retrievedTemplates);
 
         return retrievedTemplates;
     }
 
     public TemplateItem getTemplateByID(int templateId ) {
         Client client = ClientBuilder.newClient();
-        logger.debug("template ID: {}", templateId);
+//        logger.debug("template ID: {}", templateId);
         WebTarget target =
                 client.target("http://localhost:8080/slack2slack/service/templates/template/" // TODO: remove hard-coded values
                         + templateId);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
-        logger.debug("response: {}", response);
+//        logger.debug("response: {}", response);
         ObjectMapper mapper = new ObjectMapper();
         TemplateItem retrievedTemplate = null;
         try {

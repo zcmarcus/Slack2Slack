@@ -32,7 +32,7 @@ public class FormLoadAction extends HttpServlet {
         TemplatesResponseDao templatesResponseDao = new TemplatesResponseDao();
         TemplatesCollection templatesCollection = templatesResponseDao.getTemplates(userID);
         List<TemplateItem> templates = templatesCollection.getTemplates();
-        logger.debug("templates : {}", templates);
+//        logger.debug("templates : {}", templates);
 
         req.setAttribute("userTemplates", templates);
 

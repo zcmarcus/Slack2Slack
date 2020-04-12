@@ -9,13 +9,17 @@ const init = () => {
     channelsContainer = document.querySelector("#channelsContainer");
     
     // Create event listener for "Add Another Channel" button
-    let addChannelListener = document.querySelector("#addChannelButton");
-    addChannelListener.addEventListener("click", addChannel);
+    let addChannel = document.querySelector("#addChannelButton");
+    if(addChannel != null) {
+        addChannel.addEventListener("click", addChannel);
+    }
 
     // Create event listener for "Choose Template" select element
-    let chooseTemplate = document.querySelector("#chooseTemplate");
-    chooseTemplateListener.addEventListener("click", chooseTemplate);
 
+    let chooseTemplate = document.querySelector("#chooseTemplate");
+    if(chooseTemplate != null) {
+        chooseTemplate.addEventListener("click", chooseTemplate);
+    }
 };
 
 /*

@@ -22,5 +22,9 @@
 
     <!-- For signup page-->
     <script src="js/signup.js"></script>
+
+    <%-- Template form script--%>
+    <script src="js/form.js"></script>
+
 </head>
 

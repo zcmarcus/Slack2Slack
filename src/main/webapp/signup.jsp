@@ -1,14 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="title" value="Sign Up" />
 <%@include file="templates/head.jsp"%>
-
-
 <html>
 <body>
+<%@include file="templates/navmenu.jsp"%>
+<%@include file="templates/header.jsp"%>
+
 <div class="container-fluid">
-    <%@include file="templates/navmenu.jsp"%>
 
     <div class="container">
+
+        <h2 id="signUp">Sign Up</h2>
 
         <div class="row">
             <div class="col-6 offset-3">
