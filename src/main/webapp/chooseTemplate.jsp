@@ -30,7 +30,7 @@
                         <c:choose>
                             <c:when test="${!empty userTemplates}">
                                 <c:forEach items="${userTemplates}" var="template">
-                                    <option value="${template.templateId}">ID:${template.templateId} for Owner: ${template.ownerFirstName} ${template.ownerLastName}</option>
+                                    <option value="${template.templateId}">Template Name: ${template.templateName}</option>
                                 </c:forEach>
                             </c:when>
                         </c:choose>

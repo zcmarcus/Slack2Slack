@@ -29,7 +29,7 @@
 
                 <div class="form-group">
                     <label for="templateName">Template Name</label>
-                    <input type="text" class="form-control" name="templateName" id="templateName" placeholder="Template Name">
+                    <input type="text" class="form-control" name="templateName" value="${currentTemplate.templateName}" id="templateName" placeholder="Template Name">
                 </div>
 
             </div>
@@ -41,19 +41,19 @@
 
                 <div class="form-group">
                     <label for="ownerFirstName">Owner First Name</label>
-                    <input type="text" class="form-control" name="ownerFirstName" id="ownerFirstName" placeholder="First Name">
+                    <input type="text" class="form-control" name="ownerFirstName" value="${currentTemplate.ownerFirstName}" id="ownerFirstName" placeholder="First Name">
                 </div>
                 <div class="form-group">
                     <label for="ownerLastName">Owner Last Name</label>
-                    <input type="text" class="form-control" name="ownerLastName" id="ownerLastName" placeholder="Last Name">
+                    <input type="text" class="form-control" name="ownerLastName" value="${currentTemplate.ownerLastName}" id="ownerLastName" placeholder="Last Name">
                 </div>
                 <div class="form-group">
                     <label for="ownerDisplayName">Owner Display Name</label>
-                    <input type="text" class="form-control" name="ownerDisplayName" id="ownerDisplayName" placeholder="Desired Display Name">
+                    <input type="text" class="form-control" name="ownerDisplayName" value="${currentTemplate.ownerDisplayName}" id="ownerDisplayName" placeholder="Desired Display Name">
                 </div>
                 <div class="form-group">
                     <label for="iconUrl">Workspace Icon URL</label>
-                    <input type="text" class="form-control" name="iconUrl" id="iconUrl" placeholder="Example: https://1drv.ms/u/s23Aiti?e=2398z">
+                    <input type="text" class="form-control" name="iconUrl" value="${currentTemplate.iconUrl}" id="iconUrl" placeholder="Example: https://1drv.ms/u/s23Aiti?e=2398z">
                 </div>
             </div>
 
