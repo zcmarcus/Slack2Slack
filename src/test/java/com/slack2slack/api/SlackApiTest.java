@@ -44,35 +44,10 @@ public class SlackApiTest implements PropertiesLoader {
         SlackApi slackApi = new SlackApi(slackApiProperties.getProperty("botuser.oauth.accesstoken"));
         String newChannel = "newTestChannel";
         slackApi.createChannel(newChannel);
-        // TODO: assertion to check that channel was successffuly created
-        ObjectMapper mapper = new ObjectMapper();
-        PublicChannelsResponse = mapper.readValue(slackApi.getChannelsList();
-
-
-
-
-        try {
-            slackApiProperties = loadProperties("/slack.api.properties");
-        } catch (IOException io) {
-            logger.debug("There was a problem reading the file: " + io);
-        } catch (Exception e) {
-            logger.debug("Encountered a problem: " + e);
-        }
-
-        CreateConversationParameters parameters = new CreateConversationParameters();
-        parameters.setName(channelName);
-
-
-        Client client = ClientBuilder.newClient();
-        WebTarget target =
-                client.target(slackApiProperties.getProperty("create.conversation.target"));
-        Response response = target
-                .request(MediaType.APPLICATION_JSON)
-                .header("Authorization", "Bearer " + token)
-                .header("Content-type", "application/json")
-                .post(Entity.json(parameters));
-
-        //TODO Request works but we still need to do something with the response.
+//        // TODO: assertion to check that channel was successffuly created
+//        ObjectMapper mapper = new ObjectMapper();
+//        PublicChannelsResponse = mapper.readValue(slackApi.getChannelsList();
+//
 
     }
 }
