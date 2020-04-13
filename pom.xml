@@ -168,7 +168,7 @@
 
 
   <build>
-    <finalName>Slack2Slack</finalName>
+    <finalName>Slack2Slack_war</finalName>
     <pluginManagement>
       <plugins>
         <plugin>
