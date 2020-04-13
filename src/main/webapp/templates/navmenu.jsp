@@ -3,6 +3,9 @@
         <ul class="navbar-nav ml-auto">
 
             <%-- Only display form link to logged in users--%>
+            <li class="nav-item">
+                <a href="documentation.jsp" class="nav-link">Documentation</a>
+            </li>
             <c:if  test="${pageContext.request.isUserInRole('user')}">
                 <li class="nav-item">
                     <a class="nav-link" href="formLoadAction">Slack Workspace Template Form</a>
