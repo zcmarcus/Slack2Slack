@@ -2,10 +2,10 @@ package com.slack2slack.controller;
 
 import com.slack2slack.entity.User;
 import com.slack2slack.persistence.GenericDao;
+import com.slack2slack.util.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * Protected resource that simply redirects to the root. This is a hack to get around issue of Tomcat
@@ -22,7 +23,7 @@ import java.util.List;
 @WebServlet(
         urlPatterns = {"/loginAction"}
 )
-public class LoginAction extends HttpServlet {
+public class LoginAction extends HttpServlet implements PropertiesLoader {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
     GenericDao userDao = new GenericDao(User.class);
@@ -30,6 +31,15 @@ public class LoginAction extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+
+        String redirectUrl = "";
+
+        try {
+            Properties properties = loadProperties("/slack.secrets.properties");
+            redirectUrl = properties.getProperty("redirectUrl");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         int userID = 0;
         List<User> user = userDao.getByPropertyEqual("userName", req.getRemoteUser());
@@ -39,13 +49,11 @@ public class LoginAction extends HttpServlet {
         }
 //        logger.debug(userID);
 
-
         // set userID in session for use in calls to web service
         session.setAttribute("userID", userID);
 
-
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
-        dispatcher.forward(req, resp);
+        //Redirect to Slack to initiate oauth process
+        resp.sendRedirect(redirectUrl);
     }
 
 }
