@@ -32,3 +32,19 @@ body {
     padding-top: 1em;
     text-align: center;
 }
+
+.table tr {
+    cursor: pointer;
+}
+.table{
+    background-color: #fff !important;
+}
+
+.hiddenRow {
+    padding: 0 4px !important;
+    background-color: #eeeeee;
+    font-size: 13px;
+}
+.accordian-body span{
+    color:#a2a2a2 !important;
+}
