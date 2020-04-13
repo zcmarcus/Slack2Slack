@@ -21,7 +21,7 @@ public class TemplatesResponseDao {
         Client client = ClientBuilder.newClient();
 //        logger.debug("user ID: {}", userID);
         WebTarget target =
-                client.target("http://localhost:8080/slack2slack/service/templates/" // TODO: remove hard-coded values
+                client.target("http://localhost:8080/Slack2Slack_war/service/templates/" // TODO: remove hard-coded values
                         + userID);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 //        logger.debug("response: {}", response);
@@ -42,7 +42,7 @@ public class TemplatesResponseDao {
         Client client = ClientBuilder.newClient();
 //        logger.debug("template ID: {}", templateId);
         WebTarget target =
-                client.target("http://localhost:8080/slack2slack/service/templates/template/" // TODO: remove hard-coded values
+                client.target("http://localhost:8080/Slack2Slack_war/service/templates/template/" // TODO: remove hard-coded values
                         + templateId);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 //        logger.debug("response: {}", response);

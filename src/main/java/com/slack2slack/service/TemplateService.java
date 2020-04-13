@@ -102,73 +102,60 @@ public class TemplateService {
     }
 
 
-//    /**
-//     * Produces response with template matching supplied template ID.
-//     */
-//    @GET
-//    @Produces(MediaType.APPLICATION_JSON)
-//    // Param is user id.
-//    @Path("/template/{templateID}")
-//    public Response getTemplate(@PathParam("templateID") int id) {
-//
-//        templateDao = new GenericDao(Template.class);
-//        Template template = (Template)templateDao.getById(id);
-//        logger.debug(template);
-//
-//        // Read owner profile from JSON stored in database as String and convert to JsonNode object
-//
-//        ObjectMapper mapper = new ObjectMapper();
-//        JsonNode ownerProfileNode = null;
-//        String ownerFirstName = "";
-//        String ownerLastName = "";
-//        String ownerDisplayName = "";
-//        String ownerEmail = "";
-//        try {
-//            ownerProfileNode = mapper.readTree(template.getPrimaryOwnerProfile());
-//            ownerFirstName = ownerProfileNode.get("first_name").asText();
-//            ownerLastName = ownerProfileNode.get("last_name").asText();
-//            ownerDisplayName = ownerProfileNode.get("display_name").asText();
-//            ownerEmail = ownerProfileNode.get("email").asText();
-//
-//        } catch (JsonProcessingException e) {
-//            logger.error("Error reading JSON from string");
-//        }
-//
-//        JsonObjectBuilder templateObject = Json.createObjectBuilder()
-//                .add("templateId", template.getId())
-//                .add("templateName", template.getName())
-//                .add("iconUrl", template.getIconUrl())
-//                .add("primaryOwnerProfile", Json.createObjectBuilder()
-//                        .add("firstName", ownerFirstName)
-//                        .add("lastName", ownerLastName)
-//                        .add("displayName", ownerDisplayName)
-//                        .add("email", ownerEmail)
-//                );
-//
-//        List<Channel> channels = template.getChannels();
-//
-//        JsonArrayBuilder channelsArray = Json.createArrayBuilder();
-//        for (Channel channel: channels) {
-//            JsonObjectBuilder channelObject = Json.createObjectBuilder()
-//                    .add("name", channel.getName())
-//                    .add("purpose", channel.getPurpose())
-//                    .add("topic", channel.getTopic());
-//
-//            // Add channel to channels array
-//            channelsArray
-//                    .add(channelObject);
-//        }
-//
-//        // Add channels array to template JSON object
-//        templateObject
-//                .add("channels", channelsArray);
-//
-//
-//        logger.debug(templateObject);
-//
-//        return Response.status(200).entity(templateObject).build();
-//
-//    }
+    /**
+     * Produces response with template matching supplied template ID.
+     */
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    // Param is user id.
+    @Path("/template/{templateID}")
+    public Response getTemplate(@PathParam("templateID") int id) {
+
+        templateDao = new GenericDao(Template.class);
+        Template template = (Template)templateDao.getById(id);
+        logger.debug(template);
+
+        // Read owner profile from JSON stored in database as String and convert to JsonNode object
+
+        ObjectMapper mapper = new ObjectMapper();
+
+
+
+
+
+        JsonObjectBuilder templateObject = Json.createObjectBuilder()
+                .add("templateId", template.getId())
+                .add("templateName", template.getName())
+                .add("iconUrl", template.getIconUrl())
+                .add("ownerFirstName", template.getOwnerFirstName())
+                .add("ownerLastName", template.getOwnerLastName())
+                .add("ownerDisplayName", template.getOwnerDisplayName())
+                .add("ownerEmail", template.getOwnerEmail());
+
+
+        List<Channel> channels = template.getChannels();
+
+        JsonArrayBuilder channelsArray = Json.createArrayBuilder();
+        for (Channel channel: channels) {
+            JsonObjectBuilder channelObject = Json.createObjectBuilder()
+                    .add("name", channel.getName())
+                    .add("purpose", channel.getPurpose())
+                    .add("topic", channel.getTopic());
+
+            // Add channel to channels array
+            channelsArray
+                    .add(channelObject);
+        }
+
+        // Add channels array to template JSON object
+        templateObject
+                .add("channels", channelsArray);
+
+
+        logger.debug(templateObject);
+        return Response.status(200).entity(templateObject.build()).build();
+
+    }
 
 
 
