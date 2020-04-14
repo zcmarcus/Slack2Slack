@@ -29,9 +29,9 @@ public class TemplateAction extends HttpServlet {
         HttpSession session = req.getSession();
         int userID = (int) session.getAttribute("userID");
 
-//        String channelName = req.getParameter("name");
-//        String channelPurpose = req.getParameter("purpose");
-//        String channelTopic = req.getParameter("topic");
+        String channelName = req.getParameter("name");
+        String channelPurpose = req.getParameter("purpose");
+        String channelTopic = req.getParameter("topic");
 
         String templateName = req.getParameter("templateName");
         String ownerFirstName = req.getParameter("ownerFirstName");
@@ -48,7 +48,7 @@ public class TemplateAction extends HttpServlet {
         if (req.getParameter("templateId").isEmpty()) {
 
             Template template = new Template();
-//            Channel channel = new Channel();
+            Channel channel = new Channel();
 
             template.setName(templateName);
             template.setOwnerFirstName(ownerFirstName);
@@ -58,11 +58,11 @@ public class TemplateAction extends HttpServlet {
             template.setUser(user);
             template.setOwnerEmail(ownerEmail);
 
-//            channel.setName(channelName);
-//            channel.setPurpose(channelPurpose);
-//            channel.setTopic(channelTopic);
-//
-//            template.addChannel(channel);
+            channel.setName(channelName);
+            channel.setPurpose(channelPurpose);
+            channel.setTopic(channelTopic);
+
+            template.addChannel(channel);
 
             templateDao.insert(template);
 
@@ -71,7 +71,7 @@ public class TemplateAction extends HttpServlet {
             int id = Integer.parseInt(templateId);
 
             Template template = new Template();
-//            Channel channel = new Channel();
+            Channel channel = new Channel();
 
             template.setName(templateName);
             template.setOwnerFirstName(ownerFirstName);
@@ -82,17 +82,13 @@ public class TemplateAction extends HttpServlet {
             template.setId(id);
             template.setOwnerEmail(ownerEmail);
 
-//            channel.setName(channelName);
-//            channel.setPurpose(channelPurpose);
-//            channel.setTopic(channelTopic);
-//
-//            template.addChannel(channel);
+            channel.setName(channelName);
+            channel.setPurpose(channelPurpose);
+            channel.setTopic(channelTopic);
+
+            template.addChannel(channel);
 
             templateDao.saveOrUpdate(template);
-
-
-
-
         }
 
 
