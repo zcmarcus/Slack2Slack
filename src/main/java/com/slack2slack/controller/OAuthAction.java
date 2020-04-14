@@ -15,7 +15,11 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /*
-* TODO: Comment here!
+* This servlet is what users land on after agreeing to give Slack permission to their workspace.
+* This servlet receives a temporary code from Slack and then calls the Slack oauth.v2.access method to
+* obtain authentication parameters that will be used by the Slack2Slack app when making calls to the Slack API.
+*
+* IMPORTANT: If this servlet's urlPattern is changed, it must also be changed on the OAuth & Permissions page of the online Slack API console.
  */
 @WebServlet(
         urlPatterns = {"/slackoauth"}
@@ -37,12 +41,8 @@ public class OAuthAction extends HttpServlet {
         //TODO: If null set an error?
 
 
-        //TODO: grab any other parameters we need for future slack api requests
-
         //Add the necessary OAuth tokens to the session
         session.setAttribute("accessToken", accessToken);
-
-        //TODO: Put the access token in the database (possibly)
 
         //Forward to the home page
         RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");

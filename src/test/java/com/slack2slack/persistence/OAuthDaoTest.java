@@ -28,7 +28,7 @@ public class OAuthDaoTest implements PropertiesLoader {
         }
 
         //IMPORTANT: Temporary slack code is generated after logging into Slack2Slack. You can find it in the url. It expires after 10 minutes.
-        assertEquals(true, dao.getOAuthResponse("").isOk());
+        assertTrue(dao.getOAuthResponse("").isOk());
         assertEquals(expectedApp_id, dao.getOAuthResponse("").getAppId());
     }
 }
