@@ -52,8 +52,6 @@ public class OAuthDao implements PropertiesLoader {
             logger.error("Encountered a problem processing JSON in OAuthDao", e);
         }
 
-        //TODO: Verify that the response "isOk" is true, handle if false
-
         return oAuthResponse;
     }
 }

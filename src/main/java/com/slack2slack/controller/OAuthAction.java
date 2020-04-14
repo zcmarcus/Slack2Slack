@@ -33,16 +33,21 @@ public class OAuthAction extends HttpServlet {
 
         //Note that the temporary code expires after 10 minutes
         String tempSlackCode = req.getParameter("code");
-        logger.info("******Temporary Slack code: " + tempSlackCode);
+        //logger.info("******Temporary Slack code: " + tempSlackCode);
 
         OAuthDao oAuthDao = new OAuthDao();
         String accessToken = oAuthDao.getOAuthResponse(tempSlackCode).getAccessToken();
-        logger.info("******Access token: " + accessToken);
-        //TODO: If null set an error?
-
+        //logger.info("******Access token: " + accessToken);
 
         //Add the necessary OAuth tokens to the session
         session.setAttribute("accessToken", accessToken);
+
+        //If the access token is null, create an error message on index.jsp
+        boolean authError = false;
+        if (accessToken == null) {
+            authError = true;
+        }
+        session.setAttribute("authError", authError);
 
         //Forward to the home page
         RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");
