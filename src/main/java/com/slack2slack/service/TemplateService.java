@@ -53,6 +53,7 @@ public class TemplateService {
         JsonArrayBuilder channelsArray = Json.createArrayBuilder();
         for (Channel channel : channels) {
             JsonObjectBuilder channelObject = Json.createObjectBuilder()
+                    .add("channelId", channel.getId())
                     .add("name", channel.getName())
                     .add("purpose", channel.getPurpose())
                     .add("topic", channel.getTopic());
@@ -121,6 +122,7 @@ public class TemplateService {
         JsonArrayBuilder channelsArray = Json.createArrayBuilder();
         for (Channel channel: channels) {
             JsonObjectBuilder channelObject = Json.createObjectBuilder()
+                    .add("channelId", channel.getId())
                     .add("name", channel.getName())
                     .add("purpose", channel.getPurpose())
                     .add("topic", channel.getTopic());

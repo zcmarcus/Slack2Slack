@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class ChannelsItem{
 
+	@JsonProperty("channelId")
+	private int channelId;
+
 	@JsonProperty("purpose")
 	private String purpose;
 
@@ -37,13 +40,21 @@ public class ChannelsItem{
 		return topic;
 	}
 
+	public int getChannelId() {
+		return channelId;
+	}
+
+	public void setChannelId(int channelId) {
+		this.channelId = channelId;
+	}
+
 	@Override
- 	public String toString(){
-		return 
-			"ChannelsItem{" + 
-			"purpose = '" + purpose + '\'' + 
-			",name = '" + name + '\'' + 
-			",topic = '" + topic + '\'' + 
-			"}";
-		}
+	public String toString() {
+		return "ChannelsItem{" +
+				"channelId=" + channelId +
+				", purpose='" + purpose + '\'' +
+				", name='" + name + '\'' +
+				", topic='" + topic + '\'' +
+				'}';
+	}
 }

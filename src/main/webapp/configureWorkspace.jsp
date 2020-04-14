@@ -74,18 +74,19 @@
                 <c:choose>
                     <c:when test="${!empty currentTemplate}">
                         <c:forEach items="${currentTemplate.channels}" var="channel" begin="0" end="${currentTemplate.channels.size()}" step="1" varStatus="iteration">
+                            <input type="hidden" name="channelId" value="${channel.channelId}">
                             <div id="channel1Details" class="border border-dark p-4">
                                 <div class="form-group channel1NameFormGroup">
                                     <label for="channel${iteration.count + 1}Name">Name</label>
-                                    <input type="text" class="form-control" name="channel${iteration.count + 1}Name" id="channel${iteration.count + 1}Name" value="${channel.name}">
+                                    <input type="text" class="form-control" name="channelName" id="channel${iteration.count + 1}Name" value="${channel.name}">
                                 </div>
                                 <div class="form-group" id="channel1PurposeFormGroup">
                                     <label for="channel${iteration.count + 1}Purpose">Purpose</label>
-                                    <input type="text" class="form-control" name="channel${iteration.count + 1}1Purpose" id="channel${iteration.count}Purpose" value="${channel.purpose}" >
+                                    <input type="text" class="form-control" name="channelPurpose" id="channel${iteration.count}Purpose" value="${channel.purpose}" >
                                 </div>
                                 <div class="form-group" id="channel1TopicFormGroup">
                                     <label for="channel${iteration.count + 1}Topic">Topic</label>
-                                    <input type="text" class="form-control" name="channel${iteration.count + 1}Topic" id="channel${iteration.count + 1}Topic" value="${channel.topic}">
+                                    <input type="text" class="form-control" name="channelTopic" id="channel${iteration.count + 1}Topic" value="${channel.topic}">
                                 </div>
                             </div>
                         </c:forEach>
