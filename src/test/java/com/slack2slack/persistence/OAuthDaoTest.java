@@ -1,5 +1,7 @@
 package com.slack2slack.persistence;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.slack2slack.api.OAuthResponse;
 import com.slack2slack.util.PropertiesLoader;
 import org.junit.jupiter.api.Test;
 import javax.ws.rs.core.MediaType;
@@ -21,13 +23,15 @@ public class OAuthDaoTest implements PropertiesLoader {
         String tempSlackCode = "";
         String client_id = "";
         String client_secret = "";
+        String expectedApp_id = "";
 
         //Load the Slack authentication properties from the properties file
         try {
             Properties properties = loadProperties("/slack.secrets.properties");
             oAuthAccessMethod = properties.getProperty("oAuthAccessMethod");
-            client_id = properties.getProperty("clientID");
+            client_id = properties.getProperty("clientId");
             client_secret = properties.getProperty("clientSecret");
+            expectedApp_id = properties.getProperty("appId");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,6 +41,10 @@ public class OAuthDaoTest implements PropertiesLoader {
         WebTarget target =
                 client.target(oAuthAccessMethod + "?code=" + tempSlackCode + "&client_id=" + client_id + "&client_secret=" + client_secret);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
-        assertEquals("???", response);
+
+        ObjectMapper mapper = new ObjectMapper();
+        OAuthResponse oAuthResponse = mapper.readValue(response, OAuthResponse.class);
+
+        assertEquals(expectedApp_id, oAuthResponse.getAppId());
     }
 }
