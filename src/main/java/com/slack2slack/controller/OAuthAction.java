@@ -29,20 +29,14 @@ public class OAuthAction extends HttpServlet {
 
         //Note that the temporary code expires after 10 minutes
         String tempSlackCode = req.getParameter("code");
-
-        System.out.println("***From OAuthAction temp code is: " + tempSlackCode);
-
         logger.info("******Temporary Slack code: " + tempSlackCode);
 
         OAuthDao oAuthDao = new OAuthDao();
         String accessToken = oAuthDao.getOAuthResponse(tempSlackCode).getAccessToken();
-
+        logger.info("******Access token: " + accessToken);
         //TODO: If null set an error?
 
-        System.out.println("***From OAuthAction access token is: " + accessToken);
 
-
-        logger.info("******Access token: " + accessToken);
         //TODO: grab any other parameters we need for future slack api requests
 
         //Add the necessary OAuth tokens to the session
