@@ -60,4 +60,5 @@ src/test/resources/database.properties
 src/test/resources/hibernate.cfg.xml
 applicationProperties
 
+/src/main/resources/slack.secrets.properties
 
