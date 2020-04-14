@@ -11,7 +11,8 @@
 
     <div class="row col-6">
         <%--        TODO: change form action to servlet that handles call(s) to webservice to: 1.) create new template and 2.) create slack workspace--%>
-        <form action="" method="POST" class="form">
+        <form action="templateAction" method="POST" class="form">
+            <input type="hidden" name="templateId" value="${currentTemplate.templateId}">
 
             <%-- Template name (only used in our web app; has no bearing on Slack workspace)--%>
             <div>
@@ -50,6 +51,10 @@
                 <div class="form-group">
                     <label for="ownerDisplayName">Owner Display Name</label>
                     <input type="text" class="form-control" name="ownerDisplayName" value="${currentTemplate.ownerDisplayName}" id="ownerDisplayName" placeholder="Desired Display Name">
+                </div>
+                <div class="form-group">
+                    <label for="ownerEmail">Owner Email</label>
+                    <input type="text" class="form-control" name="ownerEmail" value="${currentTemplate.ownerEmail}" id="ownerEmail" placeholder="Email Address">
                 </div>
                 <div class="form-group">
                     <label for="iconUrl">Workspace Icon URL</label>
