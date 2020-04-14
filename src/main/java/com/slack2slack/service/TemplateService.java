@@ -1,30 +1,17 @@
 package com.slack2slack.service;
 
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.slack2slack.entity.*;
 import com.slack2slack.persistence.GenericDao;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
 import javax.json.*;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.io.StringWriter;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -119,10 +106,6 @@ public class TemplateService {
 
         ObjectMapper mapper = new ObjectMapper();
 
-
-
-
-
         JsonObjectBuilder templateObject = Json.createObjectBuilder()
                 .add("templateId", template.getId())
                 .add("templateName", template.getName())
@@ -156,12 +139,6 @@ public class TemplateService {
         return Response.status(200).entity(templateObject.build()).build();
 
     }
-
-
-
-
-
-
 
 
 //    /**
