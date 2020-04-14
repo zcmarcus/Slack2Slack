@@ -23,15 +23,15 @@ public class TemplateAction extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
     private final GenericDao<Template> templateDao = new GenericDao<>(Template.class);
     private final GenericDao<User> userDao = new GenericDao<>(User.class);
-    private final GenericDao<Channel> channelDao = new GenericDao<>(Channel.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         int userID = (int) session.getAttribute("userID");
 
-        String chooseTemplate = req.getParameter("chooseTemplate");
-        String newTemplate = req.getParameter("new");
+//        String channelName = req.getParameter("name");
+//        String channelPurpose = req.getParameter("purpose");
+//        String channelTopic = req.getParameter("topic");
 
         String templateName = req.getParameter("templateName");
         String ownerFirstName = req.getParameter("ownerFirstName");
@@ -39,11 +39,16 @@ public class TemplateAction extends HttpServlet {
         String ownerDisplayName = req.getParameter("ownerDisplayName");
         String ownerEmail = req.getParameter("ownerEmail");
         String iconUrl = req.getParameter("iconUrl");
+        String templateId = req.getParameter("templateId");
+
 
         User user = userDao.getById(userID);
 
-        if (chooseTemplate == newTemplate) {
+
+        if (req.getParameter("templateId").isEmpty()) {
+
             Template template = new Template();
+//            Channel channel = new Channel();
 
             template.setName(templateName);
             template.setOwnerFirstName(ownerFirstName);
@@ -53,14 +58,20 @@ public class TemplateAction extends HttpServlet {
             template.setUser(user);
             template.setOwnerEmail(ownerEmail);
 
+//            channel.setName(channelName);
+//            channel.setPurpose(channelPurpose);
+//            channel.setTopic(channelTopic);
+//
+//            template.addChannel(channel);
+
             templateDao.insert(template);
 
-        } else {
 
-            String templateId = req.getParameter("templateId");
+        } else {
             int id = Integer.parseInt(templateId);
 
             Template template = new Template();
+//            Channel channel = new Channel();
 
             template.setName(templateName);
             template.setOwnerFirstName(ownerFirstName);
@@ -71,9 +82,18 @@ public class TemplateAction extends HttpServlet {
             template.setId(id);
             template.setOwnerEmail(ownerEmail);
 
-            templateDao.saveOrUpdate(template);
-        }
+//            channel.setName(channelName);
+//            channel.setPurpose(channelPurpose);
+//            channel.setTopic(channelTopic);
+//
+//            template.addChannel(channel);
 
+            templateDao.saveOrUpdate(template);
+
+
+
+
+        }
 
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("/index.jsp");

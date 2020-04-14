@@ -73,16 +73,16 @@
 
                 <div id="channel1Details" class="border border-dark p-4">
                     <div class="form-group channel1NameFormGroup">
-                        <label for="channel1Name">Name</label>
-                        <input type="text" class="form-control" name="channel1Name" id="channel1Name" >
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" id="name" >
                     </div>
                     <div class="form-group" id="channel1PurposeFormGroup">
-                        <label for="channel1Purpose">Purpose</label>
-                        <input type="text" class="form-control" name="channel1Purpose" id="channel1Purpose">
+                        <label for="purpose">Purpose</label>
+                        <input type="text" class="form-control" name="purpose" id="purpose">
                     </div>
                     <div class="form-group" id="channel1TopicFormGroup">
-                        <label for="channel1Topic">Topic</label>
-                        <input type="text" class="form-control" name="channel1Topic" id="channel1Topic">
+                        <label for="topic">Topic</label>
+                        <input type="text" class="form-control" name="topic" id="topic">
                     </div>
 
                 </div>
