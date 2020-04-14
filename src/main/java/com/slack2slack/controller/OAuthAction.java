@@ -26,7 +26,7 @@ public class OAuthAction extends HttpServlet {
 
         //Note that the temporary code expires after 10 minutes
         String tempSlackCode = req.getParameter("code");
-        logger.info("******slack code: " + tempSlackCode);
+        logger.info("******temporary slack code: " + tempSlackCode);
 
         //TODO: Next step: exchange the code for an access token, then put the access token in the database and the session
 

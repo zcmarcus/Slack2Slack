@@ -2,6 +2,7 @@ package com.slack2slack.controller;
 
 import com.slack2slack.entity.User;
 import com.slack2slack.persistence.GenericDao;
+
 import com.slack2slack.util.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,6 +33,7 @@ public class LoginAction extends HttpServlet implements PropertiesLoader {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
+        //TODO: Note that the redirectURL may need to change...initially the channels scope was 'write', but I was having issues and demoted it to 'manage' temporarily
         String redirectUrl = "";
 
         try {
