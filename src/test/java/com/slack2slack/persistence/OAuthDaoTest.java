@@ -1,16 +1,10 @@
 package com.slack2slack.persistence;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.slack2slack.api.OAuthResponse;
 import com.slack2slack.util.PropertiesLoader;
 import org.junit.jupiter.api.Test;
-import javax.ws.rs.core.MediaType;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
 import java.util.Properties;
 
 /*
@@ -18,8 +12,9 @@ import java.util.Properties;
  */
 public class OAuthDaoTest implements PropertiesLoader {
     @Test
-    //TODO: This is actually testing that the app_id in the response is as expected, since the app_id is a static parameter
-    void getSlackUserTokenSuccess() throws Exception {
+    //This is testing that the app_id in the response is as expected, since the app_id is a static parameter.
+    //tempSlackCode is not a static parameter and will need to be manually added to the test
+    void getOAuthResponseSuccess() throws Exception {
         OAuthDao dao = new OAuthDao();
 
         String expectedApp_id = "";
