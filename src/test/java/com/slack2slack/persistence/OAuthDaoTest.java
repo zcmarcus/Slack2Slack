@@ -17,7 +17,7 @@ public class OAuthDaoTest implements PropertiesLoader {
     void getSlackUserTokenSuccess() throws Exception {
         String oAuthAccessMethod = "";
         //For testing purposes, you can get this after logging into our Slack2Slack app and then grabbing the code parameter from the URL
-        String tempSlackCode = "";
+        String tempSlackCode = "1025804317248.1060358499891.bdb8e4600fb24cd8648a0b29faca92ee99fad800f846c95ec1d4ce7d26b26b46";
         String client_id = "";
         String client_secret = "";
 
@@ -25,8 +25,8 @@ public class OAuthDaoTest implements PropertiesLoader {
         try {
             Properties properties = loadProperties("/slack.secrets.properties");
             oAuthAccessMethod = properties.getProperty("oAuthAccessMethod");
-            client_id = properties.getProperty("client_id");
-            client_secret = properties.getProperty("client_secret");
+            client_id = properties.getProperty("clientID");
+            client_secret = properties.getProperty("clientSecret");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -34,7 +34,7 @@ public class OAuthDaoTest implements PropertiesLoader {
 
         Client client = ClientBuilder.newClient();
         WebTarget target =
-                client.target(oAuthAccessMethod + "?code=" + tempSlackCode + ",client_id=" + client_id + ",client_secret=" + client_secret);
+                client.target(oAuthAccessMethod + "?code=" + tempSlackCode + "&client_id=" + client_id + "&client_secret=" + client_secret);
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
         assertEquals("???", response);
     }
