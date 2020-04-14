@@ -16,8 +16,9 @@ public class OAuthDaoTest implements PropertiesLoader {
     @Test
     void getSlackUserTokenSuccess() throws Exception {
         String oAuthAccessMethod = "";
-        //For testing purposes, you can get this after logging into our Slack2Slack app and then grabbing the code parameter from the URL
-        String tempSlackCode = "1025804317248.1060358499891.bdb8e4600fb24cd8648a0b29faca92ee99fad800f846c95ec1d4ce7d26b26b46";
+        //For testing purposes, you can get the temp code after logging into our Slack2Slack app and then grabbing the code parameter from the URL
+        //It expires after 10 minutes
+        String tempSlackCode = "";
         String client_id = "";
         String client_secret = "";
 
