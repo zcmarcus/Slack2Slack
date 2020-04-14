@@ -71,21 +71,42 @@
                     <span><small><em>Note: Maximum of 50 channels allowed</em></small></span>
                 </div>
 
-                <div id="channel1Details" class="border border-dark p-4">
-                    <div class="form-group channel1NameFormGroup">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" name="name" id="name" >
-                    </div>
-                    <div class="form-group" id="channel1PurposeFormGroup">
-                        <label for="purpose">Purpose</label>
-                        <input type="text" class="form-control" name="purpose" id="purpose">
-                    </div>
-                    <div class="form-group" id="channel1TopicFormGroup">
-                        <label for="topic">Topic</label>
-                        <input type="text" class="form-control" name="topic" id="topic">
-                    </div>
+                <c:choose>
+                    <c:when test="${!empty currentTemplate}">
+                        <c:forEach items="${currentTemplate.channels}" var="channel" begin="0" end="${currentTemplate.channels.size()}" step="1" varStatus="iteration">
+                            <div id="channel1Details" class="border border-dark p-4">
+                                <div class="form-group channel1NameFormGroup">
+                                    <label for="channel${iteration.count + 1}Name">Name</label>
+                                    <input type="text" class="form-control" name="channel${iteration.count + 1}Name" id="channel${iteration.count + 1}Name" value="${channel.name}">
+                                </div>
+                                <div class="form-group" id="channel1PurposeFormGroup">
+                                    <label for="channel${iteration.count + 1}Purpose">Purpose</label>
+                                    <input type="text" class="form-control" name="channel${iteration.count + 1}1Purpose" id="channel${iteration.count}Purpose" value="${channel.purpose}" >
+                                </div>
+                                <div class="form-group" id="channel1TopicFormGroup">
+                                    <label for="channel${iteration.count + 1}Topic">Topic</label>
+                                    <input type="text" class="form-control" name="channel${iteration.count + 1}Topic" id="channel${iteration.count + 1}Topic" value="${channel.topic}">
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </c:when>
+                </c:choose>
 
-                </div>
+<%--                <div id="channel1Details" class="border border-dark p-4">--%>
+<%--                    <div class="form-group channel1NameFormGroup">--%>
+<%--                        <label for="name">Name</label>--%>
+<%--                        <input type="text" class="form-control" name="name" id="name" >--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group" id="channel1PurposeFormGroup">--%>
+<%--                        <label for="purpose">Purpose</label>--%>
+<%--                        <input type="text" class="form-control" name="purpose" id="purpose">--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group" id="channel1TopicFormGroup">--%>
+<%--                        <label for="topic">Topic</label>--%>
+<%--                        <input type="text" class="form-control" name="topic" id="topic">--%>
+<%--                    </div>--%>
+
+<%--                </div>--%>
 
             </div>
 
