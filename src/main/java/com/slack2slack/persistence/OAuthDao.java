@@ -1,0 +1,52 @@
+package com.slack2slack.persistence;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.slack2slack.api.OAuthResponse;
+import com.slack2slack.util.PropertiesLoader;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import java.util.Properties;
+
+public class OAuthDao implements PropertiesLoader {
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
+    public OAuthResponse getOAuthResponse(String tempSlackCode) {
+        String oAuthAccessMethod = "";
+        String client_id = "";
+        String client_secret = "";
+
+        //Load the Slack authentication properties from the properties file
+        try {
+            Properties properties = loadProperties("/slack.secrets.properties");
+            oAuthAccessMethod = properties.getProperty("oAuthAccessMethod");
+            client_id = properties.getProperty("clientId");
+            client_secret = properties.getProperty("clientSecret");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Client client = ClientBuilder.newClient();
+        WebTarget target =
+                client.target(oAuthAccessMethod + "?code=" + tempSlackCode + "&client_id=" + client_id + "&client_secret=" + client_secret);
+        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        OAuthResponse oAuthResponse = null;
+        try {
+            oAuthResponse = mapper.readValue(response, OAuthResponse.class);
+        } catch (JsonProcessingException e) {
+            logger.error("Encountered a problem processing JSON in OAuthDao: {}", e);
+        }
+
+        //TODO: Verify that the response "isOk" is true, handle if false
+
+        return oAuthResponse;
+    }
+}
