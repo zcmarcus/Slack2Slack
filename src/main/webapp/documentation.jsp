@@ -25,7 +25,7 @@
                                 <div class="card mt-5" id="about">
                                         <div class="card-body p-5">
                                                 <h3 class="card-title">About</h3>
-                                                <p class="card-text">Slack2Slack is a utility allowing for quick and simple configuration of new Slack Workspaces from user-created templates.</p>
+                                                <p class="card-text">Slack2Slack is a simple utility app that offers users a quick and easy route for configuring Slack Workspaces using form-based templates.</p>
                                         </div>
                                 </div>
 
@@ -49,7 +49,7 @@
 
                                                             <li class="list-item mt-2 mb-2">
                                                                     <ul class="list-unstyled">
-                                                                            <li class="list-item">Click "Sign Up" in the upper right section of the top navigation bar, and create a user account.</a></li>
+                                                                            <li class="list-item">Click "Sign Up" in the upper right section of the top navigation bar, and create a user account.</li>
                                                                             <li class="list-item"><img src="images/docs/001_sign_up.png" alt=""></li>
                                                                     </ul>
                                                             </li>
@@ -116,7 +116,7 @@
                                                                             <li class="list-item"><img src="images/docs/008b_configure_existing.png" alt=""></li>
                                                                     </ul>
                                                             </li>
-                                                  
+
 
                                                             <li class="list-item mt-2 mb-2">
                                                                     <ul class="list-unstyled">
