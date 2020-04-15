@@ -11,7 +11,8 @@
 
     <div class="row col-6">
         <%--        TODO: change form action to servlet that handles call(s) to webservice to: 1.) create new template and 2.) create slack workspace--%>
-        <form action="" method="POST" class="form">
+        <form action="templateAction" method="POST" class="form">
+            <input type="hidden" name="templateId" value="${currentTemplate.templateId}">
 
             <%-- Template name (only used in our web app; has no bearing on Slack workspace)--%>
             <div>
@@ -52,6 +53,10 @@
                     <input type="text" class="form-control" name="ownerDisplayName" value="${currentTemplate.ownerDisplayName}" id="ownerDisplayName" placeholder="Desired Display Name">
                 </div>
                 <div class="form-group">
+                    <label for="ownerEmail">Owner Email</label>
+                    <input type="text" class="form-control" name="ownerEmail" value="${currentTemplate.ownerEmail}" id="ownerEmail" placeholder="Email Address">
+                </div>
+                <div class="form-group">
                     <label for="iconUrl">Workspace Icon URL</label>
                     <input type="text" class="form-control" name="iconUrl" value="${currentTemplate.iconUrl}" id="iconUrl" placeholder="Example: https://1drv.ms/u/s23Aiti?e=2398z">
                 </div>
@@ -66,23 +71,43 @@
                     <span><small><em>Note: Maximum of 50 channels allowed</em></small></span>
                 </div>
 
-                <div id="channel1Details" class="border border-dark p-4">
-                    <div class="form-group channel1NameFormGroup">
-                        <label for="channel1Name">Name</label>
-                        <input type="text" class="form-control" name="channel1Name" id="channel1Name" >
-                    </div>
-                    <div class="form-group" id="channel1PurposeFormGroup">
-                        <label for="channel1Purpose">Purpose</label>
-                        <input type="text" class="form-control" name="channel1Purpose" id="channel1Purpose">
-                    </div>
-                    <div class="form-group" id="channel1TopicFormGroup">
-                        <label for="channel1Topic">Topic</label>
-                        <input type="text" class="form-control" name="channel1Topic" id="channel1Topic">
-                    </div>
+                <c:choose>
+                    <c:when test="${!empty currentTemplate}">
+                        <c:forEach items="${currentTemplate.channels}" var="channel" begin="0" end="${currentTemplate.channels.size()}" step="1" varStatus="iteration">
+                            <input type="hidden" name="channelId" value="${channel.channelId}">
+                            <div id="channel1Details" class="border border-dark p-4">
+                                <div class="form-group channel1NameFormGroup">
+                                    <label for="channel${iteration.count + 1}Name">Name</label>
+                                    <input type="text" class="form-control" name="channelName" id="channel${iteration.count + 1}Name" value="${channel.name}">
+                                </div>
+                                <div class="form-group" id="channel1PurposeFormGroup">
+                                    <label for="channel${iteration.count + 1}Purpose">Purpose</label>
+                                    <input type="text" class="form-control" name="channelPurpose" id="channel${iteration.count}Purpose" value="${channel.purpose}" >
+                                </div>
+                                <div class="form-group" id="channel1TopicFormGroup">
+                                    <label for="channel${iteration.count + 1}Topic">Topic</label>
+                                    <input type="text" class="form-control" name="channelTopic" id="channel${iteration.count + 1}Topic" value="${channel.topic}">
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </c:when>
+                </c:choose>
 
-                </div>
+<%--                <div id="channel1Details" class="border border-dark p-4">--%>
+<%--                    <div class="form-group channel1NameFormGroup">--%>
+<%--                        <label for="name">Name</label>--%>
+<%--                        <input type="text" class="form-control" name="name" id="name" >--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group" id="channel1PurposeFormGroup">--%>
+<%--                        <label for="purpose">Purpose</label>--%>
+<%--                        <input type="text" class="form-control" name="purpose" id="purpose">--%>
+<%--                    </div>--%>
+<%--                    <div class="form-group" id="channel1TopicFormGroup">--%>
+<%--                        <label for="topic">Topic</label>--%>
+<%--                        <input type="text" class="form-control" name="topic" id="topic">--%>
+<%--                    </div>--%>
 
-
+<%--                </div>--%>
 
             </div>
 
