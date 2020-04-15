@@ -4,6 +4,7 @@ import com.slack2slack.entity.Channel;
 import com.slack2slack.entity.Template;
 import com.slack2slack.entity.User;
 import com.slack2slack.persistence.GenericDao;
+import com.slack2slack.util.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -14,20 +15,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 @WebServlet(
         urlPatterns = {"/templateAction"}
 )
-public class TemplateAction extends HttpServlet {
+public class TemplateAction extends HttpServlet implements PropertiesLoader {
     private final Logger logger = LogManager.getLogger(this.getClass());
     private final GenericDao<Template> templateDao = new GenericDao<>(Template.class);
     private final GenericDao<User> userDao = new GenericDao<>(User.class);
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String conversationsCreateUrl = "";
+        try {
+            Properties properties = loadProperties("/slack.secrets.properties");
+            conversationsCreateUrl = properties.getProperty("conversationsCreateUrl");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         HttpSession session = req.getSession();
         int userID = (int) session.getAttribute("userID");
 
@@ -55,6 +68,15 @@ public class TemplateAction extends HttpServlet {
             channel.setName(channelNames[i]);
 
             channels.add(channel);
+
+            Client client = ClientBuilder.newClient();
+            WebTarget target =
+                    client.target(conversationsCreateUrl + "?token="
+                            + session.getAttribute("accessToken")
+                            + "&name="
+                            + channelNames[i]);
+            String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+            logger.debug(response);
         }
 
 
