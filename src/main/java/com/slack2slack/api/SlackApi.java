@@ -35,7 +35,7 @@ public class SlackApi {
      * @param channelName the channel name. Channel names may only contain lowercase letters, numbers, hyphens, and underscores,
      * and must be 80 characters or less.
      */
-    void createChannel(String channelName) {
+    public void createChannel(String channelName, String token) {
         CreateConversationParameters parameters = new CreateConversationParameters();
         parameters.setName(channelName);
 
@@ -50,6 +50,5 @@ public class SlackApi {
                 .post(Entity.json(parameters));
 
         //TODO Request works but we still need to do something with the response.
-
     }
 }

@@ -92,6 +92,8 @@
                     </c:when>
                 </c:choose>
 
+
+
 <%--                <div id="channel1Details" class="border border-dark p-4">--%>
 <%--                    <div class="form-group channel1NameFormGroup">--%>
 <%--                        <label for="name">Name</label>--%>
@@ -116,8 +118,11 @@
 
 
             <div class="mt-5">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <input type="submit" class="btn btn-primary" name="submit" value="submitToDatabase"/>
+                <input type="submit" class="btn btn-primary ml-5" name="submit" value="addToSlackWorkspace"/>
             </div>
+
+
 
         </form>
 
