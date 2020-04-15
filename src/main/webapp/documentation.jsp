@@ -23,15 +23,137 @@
 
 
                                 <div class="card mt-5" id="about">
-                                        <div class="card-body">
+                                        <div class="card-body p-5">
                                                 <h3 class="card-title">About</h3>
                                                 <p class="card-text">Slack2Slack is a utility allowing for quick and simple configuration of new Slack Workspaces from user-created templates.</p>
                                         </div>
                                 </div>
 
-                                <div class="mt-5" id="howto">
-                                        <h3>How to Use</h3>
-                                        <ul></ul>
+                                <div class="card mt-5" id="howto">
+                                        <div class="card-body p-5">
+                                                <h3 class="card-title">How to Use</h3>
+                                                <div>
+                                                    <ol class="list-group">
+                                                            <li class="list-item mt-2 mb-2">Create a new Slack Workspace at <a href="slack.com/create#email">slack.com/create#email</a> and set up with base required details.</li>
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">Add our Slack App to workspace (Codename: SlacKerZ, but will be listed as Slack2Slack upon distribution)</li>
+                                                                            <li class="list-item"><img src="images/docs/install_slack_app.png" alt=""></li>
+                                                                    </ul>
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">In a web browser, navigate to our web app here: <a href="http://18.217.107.47:8080/Slack2Slack_war">http://18.217.107.47:8080/Slack2Slack_war</a></li>
+                                                                    </ul>
+                                                            </li>
+
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">Click "Sign Up" in the upper right section of the top navigation bar, and create a user account.</a></li>
+                                                                            <li class="list-item"><img src="images/docs/001_sign_up.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">Click "Sign Up" in the upper right section of the top navigation bar, and create a user account.</a></li>
+                                                                            <li class="list-item"><img src="images/docs/001_sign_up.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">Create a new account.</li>
+                                                                            <li class="list-item"><img src="images/docs/002_create_account.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">Upon confirmation of account creation, click "Log In."</li>
+                                                                            <li class="list-item"><img src="images/docs/003_creation_confirmed.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">Enter credentials and click Submit</li>
+                                                                            <li class="list-item"><img src="images/docs/004_log_in.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">You will be presented with a dialog asking you to grant our Slack App permission to create and modify channel data in your workspace. Click 'Allow'.</li>
+                                                                            <li class="list-item"><img src="images/docs/005_permission_allow.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">After being redirected to our web app's home page, click "Slack Workspace Template Form" in the upper right section of the top navigation bar.</li>
+                                                                            <li class="list-item"><img src="images/docs/006_click_template_form.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">You will reach a screen with a drop-down menu containing any existing templates and an option to create a new template.</li>
+                                                                            <li class="list-item"><img src="images/docs/007a_choose_template.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item"><img src="images/docs/007b_choose_template_choices.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">Selecting "Create New Template" and clicking the Submit button will land the user on a blank form for configuring a new workspace template</li>
+                                                                            <li class="list-item"><img src="images/docs/008a_configure_new.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">Selecting an existing template and clicking Submit will load a template configuration form already pre-filled with fields from the existing template<li>
+                                                                            <li class="list-item"><img src="images/docs/008b_configure_existing.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">Selecting an existing template and clicking Submit will load a template configuration form already pre-filled with fields from the existing template<li>
+                                                                            <li class="list-item"><img src="images/docs/008b_configure_existing.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">When workspace template configuration is complete, click to Submit. This fires off two actions: 1.)*All workspace attributes defined on form are configured/added to the user's Slack Workspace. ,
+                                                                                    and 2.) If any changes are made to the template, the template is updated in the database.
+                                                                            </li>
+                                                                            <li><small>*Note: only partially functional at this time. Note all form fields are currently configured to populate Slack Workspace attributes</small></li>
+                                                                            <li class="list-item"><img src="images/docs/009_submit.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+                                                            <li class="list-item mt-2 mb-2">
+                                                                    <ul class="list-unstyled">
+                                                                            <li class="list-item">Check Slack Workspace for new changes based on form entry.</li>
+                                                                            <li class="list-item"><img src="images/docs/010_channels_created.png" alt=""></li>
+                                                                    </ul>
+                                                            </li>
+
+
+
+
+
+
+                                                    </ol>
+                                                </div>
+                                        </div>
 
                                 </div>
 
