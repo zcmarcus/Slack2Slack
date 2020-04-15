@@ -62,3 +62,5 @@ applicationProperties
 
 /src/main/resources/slack.secrets.properties
 
+/src/main/webapp/META-INF/
+/src/main/webapp/META-INF/

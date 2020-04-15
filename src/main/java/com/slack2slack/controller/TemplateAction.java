@@ -38,8 +38,10 @@ public class TemplateAction extends HttpServlet implements PropertiesLoader {
         try {
             Properties properties = loadProperties("/slack.secrets.properties");
             conversationsCreateUrl = properties.getProperty("conversationsCreateUrl");
+        } catch (IOException io) {
+            logger.debug("There was a problem reading the properties: " + io);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.debug("Encountered a problem: " + e);
         }
         HttpSession session = req.getSession();
         int userID = (int) session.getAttribute("userID");

@@ -11,6 +11,7 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import java.io.IOException;
 import java.util.Properties;
 
 /**
@@ -35,8 +36,10 @@ public class OAuthDao implements PropertiesLoader {
             oAuthAccessMethod = properties.getProperty("oAuthAccessMethod");
             client_id = properties.getProperty("clientId");
             client_secret = properties.getProperty("clientSecret");
+        } catch (IOException io) {
+            logger.debug("There was a problem reading the properties: " + io);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.debug("Encountered a problem: " + e);
         }
 
         Client client = ClientBuilder.newClient();
