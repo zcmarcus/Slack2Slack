@@ -13,9 +13,17 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import java.util.Properties;
 
+/**
+ * This DAO obtains OAuth information from the Slack API
+ */
 public class OAuthDao implements PropertiesLoader {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
+    /**
+     * Accesses the oauth.v2.access method of the Slack API and returns the API's response
+     * @param tempSlackCode the temporary Slack authentication code that must be exchanged for an access code
+     * @return response from OAuth
+     */
     public OAuthResponse getOAuthResponse(String tempSlackCode) {
         String oAuthAccessMethod = "";
         String client_id = "";
@@ -37,15 +45,12 @@ public class OAuthDao implements PropertiesLoader {
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
 
         ObjectMapper mapper = new ObjectMapper();
-
         OAuthResponse oAuthResponse = null;
         try {
             oAuthResponse = mapper.readValue(response, OAuthResponse.class);
         } catch (JsonProcessingException e) {
-            logger.error("Encountered a problem processing JSON in OAuthDao: {}", e);
+            logger.error("Encountered a problem processing JSON in OAuthDao", e);
         }
-
-        //TODO: Verify that the response "isOk" is true, handle if false
 
         return oAuthResponse;
     }

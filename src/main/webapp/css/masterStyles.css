@@ -2,6 +2,15 @@ body {
     background-color: #e6e6e6;
 }
 
+.wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80em;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1em;
+}
+
 #logo {
     display: block;
     margin-left: auto;
@@ -12,10 +21,6 @@ body {
 #welcome {
     text-align: center;
     padding-top: 1em;
-}
-
-#welcomeToSlack2Slack {
-    text-align: center;
 }
 
 .line {

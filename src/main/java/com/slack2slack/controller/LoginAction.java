@@ -18,8 +18,7 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * Protected resource that simply redirects to the root. This is a hack to get around issue of Tomcat
- * security not liking direct navigation to the login page.
+ * Protected resource that simply redirects to the Slack API in order to obtain a temporary authentication code.
  */
 @WebServlet(
         urlPatterns = {"/loginAction"}
@@ -33,7 +32,6 @@ public class LoginAction extends HttpServlet implements PropertiesLoader {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
-        //TODO: Note that the redirectURL may need to change...initially the channels scope was 'write', but I was having issues and demoted it to 'manage' temporarily
         String redirectUrl = "";
 
         try {
