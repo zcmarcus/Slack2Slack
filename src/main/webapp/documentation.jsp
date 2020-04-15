@@ -54,12 +54,6 @@
                                                                     </ul>
                                                             </li>
 
-                                                            <li class="list-item mt-2 mb-2">
-                                                                    <ul class="list-unstyled">
-                                                                            <li class="list-item">Click "Sign Up" in the upper right section of the top navigation bar, and create a user account.</a></li>
-                                                                            <li class="list-item"><img src="images/docs/001_sign_up.png" alt=""></li>
-                                                                    </ul>
-                                                            </li>
 
                                                             <li class="list-item mt-2 mb-2">
                                                                     <ul class="list-unstyled">
@@ -122,12 +116,7 @@
                                                                             <li class="list-item"><img src="images/docs/008b_configure_existing.png" alt=""></li>
                                                                     </ul>
                                                             </li>
-                                                            <li class="list-item mt-2 mb-2">
-                                                                    <ul class="list-unstyled">
-                                                                            <li class="list-item">Selecting an existing template and clicking Submit will load a template configuration form already pre-filled with fields from the existing template<li>
-                                                                            <li class="list-item"><img src="images/docs/008b_configure_existing.png" alt=""></li>
-                                                                    </ul>
-                                                            </li>
+                                                  
 
                                                             <li class="list-item mt-2 mb-2">
                                                                     <ul class="list-unstyled">
