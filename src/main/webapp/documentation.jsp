@@ -13,28 +13,30 @@
                         <div class="col-sm-3 col-md-2 sidebar flex-shrink-1 pt-3" id="documentationNavbar">
                                 <ul class="nav flex-sm-column">
 
-                                        <li><a class="nav-link" href="#description">Description</a></li>
-                                        <li><a class="nav-link" href="#resources">Resources</a></li>
-                                        <li><a class="nav-link" href="#">Another Thing</a></li>
-                                        <li><a class="nav-link" href="#">Also This</a></li>
+                                        <li><a class="nav-link sidebarLink" href="#about">About</a></li>
+                                        <li><a class="nav-link sidebarLink" href="#howto">How to Use</a></li>
+                                        <li><a class="nav-link sidebarLink" href="#resources">Resources</a></li>
                                 </ul>
                         </div>
                         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 flex-grow-1 py-3">
-                                <h5>Content</h5>
-
-                                <h2 id="welcome">Slack2Slack Web Service Documentation</h2>
+                                <h2 class="mt-3">Slack2Slack Documentation</h2>
 
 
+                                <div class="card mt-5" id="about">
+                                        <div class="card-body">
+                                                <h3 class="card-title">About</h3>
+                                                <p class="card-text">Slack2Slack is a utility allowing for quick and simple configuration of new Slack Workspaces from user-created templates.</p>
+                                        </div>
+                                </div>
 
-
-                                <div class="mt-5" id="description">
-                                        <h3>Description</h3>
-                                        <p>Description text...</p>
+                                <div class="mt-5" id="howto">
+                                        <h3>How to Use</h3>
+                                        <ul></ul>
 
                                 </div>
 
-                                <div class="mt-5" id="operations">
-                                        <h3>Resources</h3>
+                                <div class="mt-5" id="resources">
+                                        <h3>Web Service Resources</h3>
                                         <table class="table table-bordered table-striped" id="serviceOperationsTable" style="border-collapse:collapse;">
                                                 <thead>
                                                         <tr>
