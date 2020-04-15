@@ -24,14 +24,14 @@
 
                                 <div class="card mt-5" id="about">
                                         <div class="card-body p-5">
-                                                <h3 class="card-title">About</h3>
+                                                <h3 class="card-title"><a href="documentation.jsp#about">#</a>About</h3>
                                                 <p class="card-text">Slack2Slack is a simple utility app that offers users a quick and easy route for configuring Slack Workspaces using form-based templates.</p>
                                         </div>
                                 </div>
 
                                 <div class="card mt-5" id="howto">
                                         <div class="card-body p-5">
-                                                <h3 class="card-title">How to Use</h3>
+                                                <h3 class="card-title"><a href="documentation.jsp#howto">#</a>How to Use</h3>
                                                 <div>
                                                     <ol class="list-group">
                                                             <li class="list-item mt-2 mb-2">Create a new Slack Workspace at <a href="slack.com/create#email">slack.com/create#email</a> and set up with base required details.</li>
@@ -147,7 +147,7 @@
                                 </div>
 
                                 <div class="mt-5" id="resources">
-                                        <h3>Web Service Resources</h3>
+                                        <h3><a href="documentation.jsp#resources">#</a> Web Service Resources</h3>
                                         <table class="table table-bordered table-striped" id="serviceOperationsTable" style="border-collapse:collapse;">
                                                 <thead>
                                                         <tr>
@@ -158,7 +158,7 @@
                                                 <tbody>
                                                         <tr class="toggler togglers1">
                                                                 <td class="operationType"><button class="btn btn-primary togglers1">POST</button></td>
-                                                                <td class="operationDetails"><span class="font-bold">addTemplate</span></td>
+                                                                <td class="operationDetails"><span class="font-bold">/templates/template/</span></td>
                                                         </tr>
                                                         <tr class="collapse p-3 hiddenRow" id="operationDetails1">
                                                                 <td colspan="2">
@@ -166,19 +166,16 @@
                                                                                 <h4>Description</h4>
                                                                                 <p>Create a new template</p>
                                                                                 <table class="table table-condensed">
-                                                                                        <caption>Parameters</caption>
                                                                                         <thead>
                                                                                         <tr>
                                                                                                 <th>Name</th>
                                                                                                 <th>Description</th>
-                                                                                                <th>Data type</th>
                                                                                         </tr>
                                                                                         </thead>
                                                                                         <tbody>
                                                                                         <tr>
-                                                                                                <td>parameter1</td>
-                                                                                                <td>description.....</td>
-                                                                                                <td>TemplatesCollection</td>
+                                                                                                <td>N/A</td>
+                                                                                                <td>N/A</td>
                                                                                         </tr>
                                                                                         </tbody>
                                                                                 </table>
@@ -188,59 +185,141 @@
 
                                                         <tr class="toggler togglers2">
                                                                 <td class="operationType "><button class="btn btn-success togglers2">GET</button></td>
-                                                                <td class="operationDetails"><span class="font-bold">getTemplate</span></td>
+                                                                <td class="operationDetails"><span class="font-bold">/templates/template/{templateID}</span></td>
                                                         </tr>
                                                         <tr class="collapse p-3 hiddenRow" id="operationDetails2">
                                                                 <td colspan="2">
                                                                         <div>
                                                                                 <h4>Description</h4>
-                                                                                <p>Retrieve a template.</p>
-                                                                                <table class="table table-striped">
-                                                                                        <caption>Parameters</caption>
+                                                                                <p>Retrieve a specific template.</p>
+                                                                                <div>
+                                                                                <h5>Parameters</h5>
+                                                                                <table class="table table-condensed">
+
                                                                                         <thead>
                                                                                         <tr>
                                                                                                 <th>Name</th>
                                                                                                 <th>Description</th>
-                                                                                                <th>Data type</th>
                                                                                         </tr>
                                                                                         </thead>
                                                                                         <tbody>
                                                                                         <tr>
-                                                                                                <td>parameter1</td>
-                                                                                                <td>description.....</td>
-                                                                                                <td>TemplatesCollection</td>
+                                                                                                <td>templateID</td>
+                                                                                                <td>ID of the template to retrieve.</td>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                                <th>Response</th>
+                                                                                                <th>Example</th>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                                <td>200</td>
+                                                                                                <td><code>
+                                                                                                        {
+                                                                                                        "id": "1",
+                                                                                                        "templateName": "basetemplate",
+                                                                                                        "iconUrl": "http://www.images.com/image.png",
+                                                                                                        "primaryOwnerProfile": {
+                                                                                                        "firstName": "johnny",
+                                                                                                        "lastName": "johnson",
+                                                                                                        "displayName": "jjohnson",
+                                                                                                        "email": "jj"
+                                                                                                        },
+                                                                                                        "channels": [
+                                                                                                        {
+                                                                                                        "id": "1",
+                                                                                                        "name": "week3",
+                                                                                                        "purpose": "week",
+                                                                                                        "topic": "introduce"
+                                                                                                        },
+                                                                                                        {
+                                                                                                        "id": "2",
+                                                                                                        "name": "week2",
+                                                                                                        "purpose": "week",
+                                                                                                        "topic": "yourself"
+                                                                                                        },
+                                                                                                        {
+                                                                                                        "id": "3",
+                                                                                                        "name": "week1",
+                                                                                                        "purpose": "discussion",
+                                                                                                        "topic": "for"
+                                                                                                        }
+                                                                                                        ]
+                                                                                                        }
+                                                                                                </code></td>
                                                                                         </tr>
                                                                                         </tbody>
                                                                                 </table>
+                                                                                </div>
                                                                         </div>
                                                                 </td>
                                                         </tr>
 
                                                         <tr class="toggler togglers3">
                                                                 <td class="operationType "><button class="btn btn-success togglers3">GET</button></td>
-                                                                <td class="operationDetails"><span class="font-bold">getTemplates</span></td>
+                                                                <td class="operationDetails"><span class="font-bold">/templates/{userID}</span></td>
                                                         </tr>
                                                         <tr class="collapse p-3 hiddenRow" id="operationDetails3">
                                                                 <td colspan="2">
                                                                         <div>
                                                                                 <h4>Description</h4>
-                                                                                <p>Get all templates for a user.</p>
-                                                                                <table class="table table-striped">
-                                                                                        <caption>Parameters</caption>
+                                                                                <p>Get all templates for a given user.</p>
+                                                                                <table class="table table-condensed">
                                                                                         <thead>
                                                                                         <tr>
                                                                                                 <th>Name</th>
                                                                                                 <th>Description</th>
-                                                                                                <th>Data type</th>
                                                                                         </tr>
                                                                                         </thead>
                                                                                         <tbody>
                                                                                         <tr>
-                                                                                                <td>parameter1</td>
-                                                                                                <td>description.....</td>
-                                                                                                <td>TemplatesCollection</td>
+                                                                                                <td>userID</td>
+                                                                                                <td>The user ID</td>
                                                                                         </tr>
                                                                                         </tbody>
+                                                                                        <tr>
+                                                                                                <th>Response</th>
+                                                                                                <th>Example</th>
+                                                                                        </tr>
+                                                                                        <tr>
+                                                                                                <td>200</td>
+                                                                                                <td><code>
+                                                                                                        {
+                                                                                                        "templates": [
+                                                                                                        {
+                                                                                                        "id": "1",
+                                                                                                        "templateName": "basetemplate",
+                                                                                                        "iconUrl": "http://www.images.com/image.png",
+                                                                                                        "primaryOwnerProfile": {
+                                                                                                        "firstName": "johnny",
+                                                                                                        "lastName": "johnson",
+                                                                                                        "displayName": "jjohnson",
+                                                                                                        "email": "jj"
+                                                                                                        },
+                                                                                                        "channels": [
+                                                                                                        {
+                                                                                                        "id": "1",
+                                                                                                        "name": "week3",
+                                                                                                        "purpose": "week",
+                                                                                                        "topic": "introduce"
+                                                                                                        },
+                                                                                                        {
+                                                                                                        "id": "2",
+                                                                                                        "name": "week2",
+                                                                                                        "purpose": "week",
+                                                                                                        "topic": "yourself"
+                                                                                                        },
+                                                                                                        {
+                                                                                                        "id": "3",
+                                                                                                        "name": "week1",
+                                                                                                        "purpose": "discussion",
+                                                                                                        "topic": "for"
+                                                                                                        }
+                                                                                                        ]
+                                                                                                        }
+                                                                                                        ]
+                                                                                                        }
+                                                                                                </code></td>
+                                                                                        </tr>
                                                                                 </table>
                                                                         </div>
                                                                 </td>
@@ -248,27 +327,24 @@
 
                                                         <tr class="toggler togglers4">
                                                                 <td class="operationType "><button class="btn btn-primary togglers4">PUT</button></td>
-                                                                <td class="operationDetails"><span class="font-bold">updateTemplate</span></td>
+                                                                <td class="operationDetails"><span class="font-bold">/templates/template/{templateID}</span></td>
                                                         </tr>
                                                         <tr class="collapse p-3 hiddenRow" id="operationDetails4">
                                                                 <td colspan="2">
                                                                         <div>
                                                                                 <h4>Description</h4>
                                                                                 <p>Update an existing template.</p>
-                                                                                <table class="table table-striped">
-                                                                                        <caption>Parameters</caption>
+                                                                                <table class="table table-condensed">
                                                                                         <thead>
                                                                                         <tr>
                                                                                                 <th>Name</th>
                                                                                                 <th>Description</th>
-                                                                                                <th>Data type</th>
                                                                                         </tr>
                                                                                         </thead>
                                                                                         <tbody>
                                                                                         <tr>
-                                                                                                <td>parameter1</td>
-                                                                                                <td>description.....</td>
-                                                                                                <td>TemplatesCollection</td>
+                                                                                                <td>templateID</td>
+                                                                                                <td>ID of the template to update.</td>
                                                                                         </tr>
                                                                                         </tbody>
                                                                                 </table>
@@ -278,27 +354,24 @@
 
                                                         <tr class="toggler togglers5">
                                                                 <td class="operationType "><button class="btn btn-primary togglers5">DELETE</button></td>
-                                                                <td class="operationDetails"><span class="font-bold">removeTemplate</span></td>
+                                                                <td class="operationDetails"><span class="font-bold">/templates/template/{templateID} -<small>*Not yet implemented in service</small></span></td>
                                                         </tr>
                                                         <tr class="collapse p-3 hiddenRow" id="operationDetails5">
                                                                 <td colspan="2">
                                                                         <div>
                                                                                 <h4>Description</h4>
                                                                                 <p>Delete a template</p>
-                                                                                <table class="table table-striped">
-                                                                                        <caption>Parameters</caption>
+                                                                                <table class="table table-condensed">
                                                                                         <thead>
                                                                                         <tr>
                                                                                                 <th>Name</th>
                                                                                                 <th>Description</th>
-                                                                                                <th>Data type</th>
                                                                                         </tr>
                                                                                         </thead>
                                                                                         <tbody>
                                                                                         <tr>
-                                                                                                <td>parameter1</td>
-                                                                                                <td>description.....</td>
-                                                                                                <td>TemplatesCollection</td>
+                                                                                                <td>templateID</td>
+                                                                                                <td>ID of the template to delete.</td>
                                                                                         </tr>
                                                                                         </tbody>
                                                                                 </table>
