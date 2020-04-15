@@ -2,6 +2,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
 
+            <li class="nav-item">
+                <a href="documentation.jsp" class="nav-link">Documentation</a>
+            </li>
             <%-- Only display form link to logged in users--%>
             <c:if  test="${pageContext.request.isUserInRole('user')}">
                 <li class="nav-item">

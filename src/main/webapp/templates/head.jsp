@@ -25,6 +25,8 @@
 
     <%-- Template form script--%>
     <script src="js/form.js"></script>
+    <%-- Documentation page script--%>
+    <script src="js/documentation.js"></script>
 
 </head>
 

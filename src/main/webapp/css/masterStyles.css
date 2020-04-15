@@ -37,3 +37,34 @@ body {
     padding-top: 1em;
     text-align: center;
 }
+
+
+/* Documentation page styles */
+#documentationNavbar {
+    background-color: #8a25b1
+}
+
+#documentationNavbar a {
+    color: white;
+}
+
+.table tr.toggler {
+    cursor: pointer;
+}
+
+.table tr.toggler:hover {
+    background-color: lightcyan;
+}
+
+.table{
+    background-color: #fff !important;
+}
+
+.hiddenRow {
+    padding: 0 4px !important;
+    background-color: #eeeeee;
+    font-size: 13px;
+}
+.accordian-body span{
+    color:#a2a2a2 !important;
+}
